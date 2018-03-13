@@ -1,0 +1,465 @@
+
+ROSSComms.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002e0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000002e  00802000  000002e0  00000374  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  0080202e  0080202e  000003a2  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000003a2  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000003d4  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000b8  00000000  00000000  00000414  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00003621  00000000  00000000  000004cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00002081  00000000  00000000  00003aed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000009c0  00000000  00000000  00005b6e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001c0  00000000  00000000  00006530  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000247b  00000000  00000000  000066f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000484  00000000  00000000  00008b6b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000d0  00000000  00000000  00008fef  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 56 00 	jmp	0xac	; 0xac <__ctors_end>
+   4:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+   8:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+   c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  10:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  14:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  18:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  1c:	0c 94 00 01 	jmp	0x200	; 0x200 <__vector_7>
+  20:	0c 94 0a 01 	jmp	0x214	; 0x214 <__vector_8>
+  24:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  28:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  2c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  30:	0c 94 e8 00 	jmp	0x1d0	; 0x1d0 <__vector_12>
+  34:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  38:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  3c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  40:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  44:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  48:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  4c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  50:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  54:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  58:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  5c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  60:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  64:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  68:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  6c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  70:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  74:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  78:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  7c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  80:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  84:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  88:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  8c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  90:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  94:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  98:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  9c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  a0:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  a4:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  a8:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+
+000000ac <__ctors_end>:
+  ac:	11 24       	eor	r1, r1
+  ae:	1f be       	out	0x3f, r1	; 63
+  b0:	cf ef       	ldi	r28, 0xFF	; 255
+  b2:	cd bf       	out	0x3d, r28	; 61
+  b4:	df e2       	ldi	r29, 0x2F	; 47
+  b6:	de bf       	out	0x3e, r29	; 62
+
+000000b8 <__do_copy_data>:
+  b8:	10 e2       	ldi	r17, 0x20	; 32
+  ba:	a0 e0       	ldi	r26, 0x00	; 0
+  bc:	b0 e2       	ldi	r27, 0x20	; 32
+  be:	e0 ee       	ldi	r30, 0xE0	; 224
+  c0:	f2 e0       	ldi	r31, 0x02	; 2
+  c2:	02 c0       	rjmp	.+4      	; 0xc8 <__do_copy_data+0x10>
+  c4:	05 90       	lpm	r0, Z+
+  c6:	0d 92       	st	X+, r0
+  c8:	ae 32       	cpi	r26, 0x2E	; 46
+  ca:	b1 07       	cpc	r27, r17
+  cc:	d9 f7       	brne	.-10     	; 0xc4 <__do_copy_data+0xc>
+
+000000ce <__do_clear_bss>:
+  ce:	20 e2       	ldi	r18, 0x20	; 32
+  d0:	ae e2       	ldi	r26, 0x2E	; 46
+  d2:	b0 e2       	ldi	r27, 0x20	; 32
+  d4:	01 c0       	rjmp	.+2      	; 0xd8 <.do_clear_bss_start>
+
+000000d6 <.do_clear_bss_loop>:
+  d6:	1d 92       	st	X+, r1
+
+000000d8 <.do_clear_bss_start>:
+  d8:	a0 33       	cpi	r26, 0x30	; 48
+  da:	b2 07       	cpc	r27, r18
+  dc:	e1 f7       	brne	.-8      	; 0xd6 <.do_clear_bss_loop>
+  de:	0e 94 30 01 	call	0x260	; 0x260 <main>
+  e2:	0c 94 6e 01 	jmp	0x2dc	; 0x2dc <_exit>
+
+000000e6 <__bad_interrupt>:
+  e6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ea <_Z11configureIOv>:
+	CLK.RTCCTRL = CLK_RTCSRC_RCOSC32_gc;					//Set the RTC input as the 32.768kHz internal oscillator
+	CLK.RTCCTRL |= CLK_RTCEN_bm;							//Enable the clock input
+	
+	//Testing setup code
+	RTC.COMP = 16384; //~1 second? Assuming 32.768 KHz
+	RTC.PER = 0xFF00;  //No tengo nuguien idea
+  ea:	a0 e0       	ldi	r26, 0x00	; 0
+  ec:	b6 e0       	ldi	r27, 0x06	; 6
+  ee:	34 e0       	ldi	r19, 0x04	; 4
+  f0:	12 96       	adiw	r26, 0x02	; 2
+  f2:	3c 93       	st	X, r19
+  f4:	12 97       	sbiw	r26, 0x02	; 2
+  f6:	e0 e4       	ldi	r30, 0x40	; 64
+  f8:	f6 e0       	ldi	r31, 0x06	; 6
+  fa:	80 e1       	ldi	r24, 0x10	; 16
+  fc:	82 83       	std	Z+2, r24	; 0x02
+  fe:	90 e2       	ldi	r25, 0x20	; 32
+ 100:	92 83       	std	Z+2, r25	; 0x02
+ 102:	12 96       	adiw	r26, 0x02	; 2
+ 104:	8c 93       	st	X, r24
+ 106:	12 97       	sbiw	r26, 0x02	; 2
+ 108:	11 96       	adiw	r26, 0x01	; 1
+ 10a:	9c 93       	st	X, r25
+ 10c:	11 97       	sbiw	r26, 0x01	; 1
+ 10e:	28 e0       	ldi	r18, 0x08	; 8
+ 110:	11 96       	adiw	r26, 0x01	; 1
+ 112:	2c 93       	st	X, r18
+ 114:	41 e0       	ldi	r20, 0x01	; 1
+ 116:	41 83       	std	Z+1, r20	; 0x01
+ 118:	a0 e6       	ldi	r26, 0x60	; 96
+ 11a:	b6 e0       	ldi	r27, 0x06	; 6
+ 11c:	11 96       	adiw	r26, 0x01	; 1
+ 11e:	9c 93       	st	X, r25
+ 120:	11 97       	sbiw	r26, 0x01	; 1
+ 122:	11 96       	adiw	r26, 0x01	; 1
+ 124:	8c 93       	st	X, r24
+ 126:	11 97       	sbiw	r26, 0x01	; 1
+ 128:	31 83       	std	Z+1, r19	; 0x01
+ 12a:	21 83       	std	Z+1, r18	; 0x01
+ 12c:	80 e4       	ldi	r24, 0x40	; 64
+ 12e:	12 96       	adiw	r26, 0x02	; 2
+ 130:	8c 93       	st	X, r24
+ 132:	08 95       	ret
+
+00000134 <_Z27configureExternalOscillatorv>:
+ 134:	e0 e5       	ldi	r30, 0x50	; 80
+ 136:	f0 e0       	ldi	r31, 0x00	; 0
+ 138:	8b e4       	ldi	r24, 0x4B	; 75
+ 13a:	82 83       	std	Z+2, r24	; 0x02
+ 13c:	80 81       	ld	r24, Z
+ 13e:	88 60       	ori	r24, 0x08	; 8
+ 140:	80 83       	st	Z, r24
+ 142:	81 81       	ldd	r24, Z+1	; 0x01
+ 144:	83 fd       	sbrc	r24, 3
+ 146:	09 c0       	rjmp	.+18     	; 0x15a <_Z27configureExternalOscillatorv+0x26>
+ 148:	a0 e4       	ldi	r26, 0x40	; 64
+ 14a:	b6 e0       	ldi	r27, 0x06	; 6
+ 14c:	98 e0       	ldi	r25, 0x08	; 8
+ 14e:	15 96       	adiw	r26, 0x05	; 5
+ 150:	9c 93       	st	X, r25
+ 152:	15 97       	sbiw	r26, 0x05	; 5
+ 154:	81 81       	ldd	r24, Z+1	; 0x01
+ 156:	83 ff       	sbrs	r24, 3
+ 158:	fa cf       	rjmp	.-12     	; 0x14e <_Z27configureExternalOscillatorv+0x1a>
+ 15a:	88 e0       	ldi	r24, 0x08	; 8
+ 15c:	80 93 46 06 	sts	0x0646, r24	; 0x800646 <__TEXT_REGION_LENGTH__+0x700646>
+ 160:	88 ed       	ldi	r24, 0xD8	; 216
+ 162:	84 bf       	out	0x34, r24	; 52
+ 164:	e0 e5       	ldi	r30, 0x50	; 80
+ 166:	f0 e0       	ldi	r31, 0x00	; 0
+ 168:	88 ec       	ldi	r24, 0xC8	; 200
+ 16a:	85 83       	std	Z+5, r24	; 0x05
+ 16c:	80 81       	ld	r24, Z
+ 16e:	80 61       	ori	r24, 0x10	; 16
+ 170:	80 83       	st	Z, r24
+ 172:	81 81       	ldd	r24, Z+1	; 0x01
+ 174:	84 fd       	sbrc	r24, 4
+ 176:	09 c0       	rjmp	.+18     	; 0x18a <_Z27configureExternalOscillatorv+0x56>
+ 178:	a0 e4       	ldi	r26, 0x40	; 64
+ 17a:	b6 e0       	ldi	r27, 0x06	; 6
+ 17c:	98 e0       	ldi	r25, 0x08	; 8
+ 17e:	15 96       	adiw	r26, 0x05	; 5
+ 180:	9c 93       	st	X, r25
+ 182:	15 97       	sbiw	r26, 0x05	; 5
+ 184:	81 81       	ldd	r24, Z+1	; 0x01
+ 186:	84 ff       	sbrs	r24, 4
+ 188:	fa cf       	rjmp	.-12     	; 0x17e <_Z27configureExternalOscillatorv+0x4a>
+ 18a:	88 e0       	ldi	r24, 0x08	; 8
+ 18c:	80 93 46 06 	sts	0x0646, r24	; 0x800646 <__TEXT_REGION_LENGTH__+0x700646>
+ 190:	88 ed       	ldi	r24, 0xD8	; 216
+ 192:	84 bf       	out	0x34, r24	; 52
+ 194:	e0 e4       	ldi	r30, 0x40	; 64
+ 196:	f0 e0       	ldi	r31, 0x00	; 0
+ 198:	10 82       	st	Z, r1
+ 19a:	84 bf       	out	0x34, r24	; 52
+ 19c:	84 e0       	ldi	r24, 0x04	; 4
+ 19e:	80 83       	st	Z, r24
+ 1a0:	08 95       	ret
+
+000001a2 <_Z14configureUSARTv>:
+ 1a2:	e0 e4       	ldi	r30, 0x40	; 64
+ 1a4:	f6 e0       	ldi	r31, 0x06	; 6
+ 1a6:	80 e8       	ldi	r24, 0x80	; 128
+ 1a8:	81 83       	std	Z+1, r24	; 0x01
+ 1aa:	80 e4       	ldi	r24, 0x40	; 64
+ 1ac:	82 83       	std	Z+2, r24	; 0x02
+ 1ae:	86 85       	ldd	r24, Z+14	; 0x0e
+ 1b0:	80 61       	ori	r24, 0x10	; 16
+ 1b2:	86 87       	std	Z+14, r24	; 0x0e
+ 1b4:	e0 ec       	ldi	r30, 0xC0	; 192
+ 1b6:	f8 e0       	ldi	r31, 0x08	; 8
+ 1b8:	83 e0       	ldi	r24, 0x03	; 3
+ 1ba:	84 83       	std	Z+4, r24	; 0x04
+ 1bc:	82 e2       	ldi	r24, 0x22	; 34
+ 1be:	86 83       	std	Z+6, r24	; 0x06
+ 1c0:	17 82       	std	Z+7, r1	; 0x07
+ 1c2:	83 81       	ldd	r24, Z+3	; 0x03
+ 1c4:	80 61       	ori	r24, 0x10	; 16
+ 1c6:	83 83       	std	Z+3, r24	; 0x03
+ 1c8:	83 81       	ldd	r24, Z+3	; 0x03
+ 1ca:	88 60       	ori	r24, 0x08	; 8
+ 1cc:	83 83       	std	Z+3, r24	; 0x03
+ 1ce:	08 95       	ret
+
+000001d0 <__vector_12>:
+ 1d0:	1f 92       	push	r1
+ 1d2:	0f 92       	push	r0
+ 1d4:	0f b6       	in	r0, 0x3f	; 63
+ 1d6:	0f 92       	push	r0
+ 1d8:	11 24       	eor	r1, r1
+ 1da:	8f 93       	push	r24
+ 1dc:	ef 93       	push	r30
+ 1de:	ff 93       	push	r31
+ 1e0:	e0 e0       	ldi	r30, 0x00	; 0
+ 1e2:	f8 e0       	ldi	r31, 0x08	; 8
+ 1e4:	84 85       	ldd	r24, Z+12	; 0x0c
+ 1e6:	81 60       	ori	r24, 0x01	; 1
+ 1e8:	84 87       	std	Z+12, r24	; 0x0c
+ 1ea:	81 e0       	ldi	r24, 0x01	; 1
+ 1ec:	80 93 2f 20 	sts	0x202F, r24	; 0x80202f <broadcastStatus>
+ 1f0:	ff 91       	pop	r31
+ 1f2:	ef 91       	pop	r30
+ 1f4:	8f 91       	pop	r24
+ 1f6:	0f 90       	pop	r0
+ 1f8:	0f be       	out	0x3f, r0	; 63
+ 1fa:	0f 90       	pop	r0
+ 1fc:	1f 90       	pop	r1
+ 1fe:	18 95       	reti
+
+00000200 <__vector_7>:
+
+}
+
+ISR(RTC_OVF_vect){
+ 200:	1f 92       	push	r1
+ 202:	0f 92       	push	r0
+ 204:	0f b6       	in	r0, 0x3f	; 63
+ 206:	0f 92       	push	r0
+ 208:	11 24       	eor	r1, r1
+	
+}
+ 20a:	0f 90       	pop	r0
+ 20c:	0f be       	out	0x3f, r0	; 63
+ 20e:	0f 90       	pop	r0
+ 210:	1f 90       	pop	r1
+ 212:	18 95       	reti
+
+00000214 <__vector_8>:
+
+ISR(RTC_COMP_vect){
+ 214:	1f 92       	push	r1
+ 216:	0f 92       	push	r0
+ 218:	0f b6       	in	r0, 0x3f	; 63
+ 21a:	0f 92       	push	r0
+ 21c:	11 24       	eor	r1, r1
+ 21e:	8f 93       	push	r24
+ 220:	ef 93       	push	r30
+ 222:	ff 93       	push	r31
+	if(globalToggle){
+ 224:	80 91 2e 20 	lds	r24, 0x202E	; 0x80202e <__data_end>
+ 228:	88 23       	and	r24, r24
+ 22a:	31 f0       	breq	.+12     	; 0x238 <__vector_8+0x24>
+		STATUS_CLR();
+ 22c:	84 e0       	ldi	r24, 0x04	; 4
+ 22e:	80 93 46 06 	sts	0x0646, r24	; 0x800646 <__TEXT_REGION_LENGTH__+0x700646>
+		globalToggle = 0;
+ 232:	10 92 2e 20 	sts	0x202E, r1	; 0x80202e <__data_end>
+ 236:	06 c0       	rjmp	.+12     	; 0x244 <__vector_8+0x30>
+	}
+	else{
+		STATUS_SET();
+ 238:	84 e0       	ldi	r24, 0x04	; 4
+ 23a:	80 93 45 06 	sts	0x0645, r24	; 0x800645 <__TEXT_REGION_LENGTH__+0x700645>
+		globalToggle = 1;
+ 23e:	81 e0       	ldi	r24, 0x01	; 1
+ 240:	80 93 2e 20 	sts	0x202E, r24	; 0x80202e <__data_end>
+	}
+	
+	RTC.CNT = 0;
+ 244:	e0 e0       	ldi	r30, 0x00	; 0
+ 246:	f4 e0       	ldi	r31, 0x04	; 4
+ 248:	10 86       	std	Z+8, r1	; 0x08
+ 24a:	11 86       	std	Z+9, r1	; 0x09
+	RTC.INTFLAGS = 0x02;
+ 24c:	82 e0       	ldi	r24, 0x02	; 2
+ 24e:	83 83       	std	Z+3, r24	; 0x03
+
+ 250:	ff 91       	pop	r31
+ 252:	ef 91       	pop	r30
+ 254:	8f 91       	pop	r24
+ 256:	0f 90       	pop	r0
+ 258:	0f be       	out	0x3f, r0	; 63
+ 25a:	0f 90       	pop	r0
+ 25c:	1f 90       	pop	r1
+ 25e:	18 95       	reti
+
+00000260 <main>:
+
+int main(void)
+{
+
+	//configure32MhzInternalOsc();
+	configureIO();	
+ 260:	0e 94 75 00 	call	0xea	; 0xea <_Z11configureIOv>
+	configureExternalOscillator();
+ 264:	0e 94 9a 00 	call	0x134	; 0x134 <_Z27configureExternalOscillatorv>
+	//
+	configureUSART();
+ 268:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <_Z14configureUSARTv>
+
+
+//	LOW_LEVEL_INTERRUPTS_ENABLE();
+//	sei();
+	
+	STATUS_CLR();
+ 26c:	e0 e4       	ldi	r30, 0x40	; 64
+ 26e:	f6 e0       	ldi	r31, 0x06	; 6
+ 270:	84 e0       	ldi	r24, 0x04	; 4
+ 272:	86 83       	std	Z+6, r24	; 0x06
+	
+	PORTD.OUTSET = PIN5_bm;
+ 274:	90 e2       	ldi	r25, 0x20	; 32
+ 276:	90 93 65 06 	sts	0x0665, r25	; 0x800665 <__TEXT_REGION_LENGTH__+0x700665>
+	
+	//ERROR_SET();
+	STATUS_SET();
+ 27a:	85 83       	std	Z+5, r24	; 0x05
+	
+	SendStringPC("Hello, world :)\n\r");
+ 27c:	80 e0       	ldi	r24, 0x00	; 0
+ 27e:	90 e2       	ldi	r25, 0x20	; 32
+ 280:	0e 94 5e 01 	call	0x2bc	; 0x2bc <_Z12SendStringPCPc>
+    while (1) 
+    {
+		if(broadcastStatus){
+			broadcastStatus = 0;
+		}
+		STATUS_TOGGLE();
+ 284:	c0 e4       	ldi	r28, 0x40	; 64
+ 286:	d6 e0       	ldi	r29, 0x06	; 6
+ 288:	14 e0       	ldi	r17, 0x04	; 4
+	STATUS_SET();
+	
+	SendStringPC("Hello, world :)\n\r");
+    while (1) 
+    {
+		if(broadcastStatus){
+ 28a:	80 91 2f 20 	lds	r24, 0x202F	; 0x80202f <broadcastStatus>
+ 28e:	81 11       	cpse	r24, r1
+			broadcastStatus = 0;
+ 290:	10 92 2f 20 	sts	0x202F, r1	; 0x80202f <broadcastStatus>
+		}
+		STATUS_TOGGLE();
+ 294:	8c 81       	ldd	r24, Y+4	; 0x04
+ 296:	82 fd       	sbrc	r24, 2
+ 298:	02 c0       	rjmp	.+4      	; 0x29e <main+0x3e>
+ 29a:	1d 83       	std	Y+5, r17	; 0x05
+ 29c:	01 c0       	rjmp	.+2      	; 0x2a0 <main+0x40>
+ 29e:	1e 83       	std	Y+6, r17	; 0x06
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2a0:	2f ef       	ldi	r18, 0xFF	; 255
+ 2a2:	83 ed       	ldi	r24, 0xD3	; 211
+ 2a4:	90 e3       	ldi	r25, 0x30	; 48
+ 2a6:	21 50       	subi	r18, 0x01	; 1
+ 2a8:	80 40       	sbci	r24, 0x00	; 0
+ 2aa:	90 40       	sbci	r25, 0x00	; 0
+ 2ac:	e1 f7       	brne	.-8      	; 0x2a6 <main+0x46>
+ 2ae:	00 c0       	rjmp	.+0      	; 0x2b0 <main+0x50>
+ 2b0:	00 00       	nop
+		_delay_ms(500);
+		
+		SendStringPC("Potatoes are the coolest!\n\r");
+ 2b2:	82 e1       	ldi	r24, 0x12	; 18
+ 2b4:	90 e2       	ldi	r25, 0x20	; 32
+ 2b6:	0e 94 5e 01 	call	0x2bc	; 0x2bc <_Z12SendStringPCPc>
+volatile uint8_t globalToggle = 0;
+volatile RSSI_type RSSI;
+
+
+
+int main(void)
+ 2ba:	e7 cf       	rjmp	.-50     	; 0x28a <main+0x2a>
+
+000002bc <_Z12SendStringPCPc>:
+#include "usart_helper.h"
+#include <stdio.h>
+
+//Sends a string to the computer
+void SendStringPC(char *stufftosend){
+	for(int i = 0 ; stufftosend[i] != '\0' ; i++){
+ 2bc:	fc 01       	movw	r30, r24
+ 2be:	20 81       	ld	r18, Z
+ 2c0:	22 23       	and	r18, r18
+ 2c2:	59 f0       	breq	.+22     	; 0x2da <_Z12SendStringPCPc+0x1e>
+ 2c4:	dc 01       	movw	r26, r24
+ 2c6:	11 96       	adiw	r26, 0x01	; 1
+		while(!USART_IsTXDataRegisterEmpty(&COMP_USART));
+ 2c8:	e0 ec       	ldi	r30, 0xC0	; 192
+ 2ca:	f8 e0       	ldi	r31, 0x08	; 8
+ 2cc:	91 81       	ldd	r25, Z+1	; 0x01
+ 2ce:	95 ff       	sbrs	r25, 5
+ 2d0:	fd cf       	rjmp	.-6      	; 0x2cc <_Z12SendStringPCPc+0x10>
+		USART_PutChar(&COMP_USART, stufftosend[i]);
+ 2d2:	20 83       	st	Z, r18
+#include "usart_helper.h"
+#include <stdio.h>
+
+//Sends a string to the computer
+void SendStringPC(char *stufftosend){
+	for(int i = 0 ; stufftosend[i] != '\0' ; i++){
+ 2d4:	2d 91       	ld	r18, X+
+ 2d6:	21 11       	cpse	r18, r1
+ 2d8:	f9 cf       	rjmp	.-14     	; 0x2cc <_Z12SendStringPCPc+0x10>
+ 2da:	08 95       	ret
+
+000002dc <_exit>:
+ 2dc:	f8 94       	cli
+
+000002de <__stop_program>:
+ 2de:	ff cf       	rjmp	.-2      	; 0x2de <__stop_program>
