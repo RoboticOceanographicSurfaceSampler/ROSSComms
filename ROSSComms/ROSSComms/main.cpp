@@ -56,9 +56,16 @@ int main(void)
 			broadcastStatus = 0;
 		}
 		STATUS_TOGGLE();
-		_delay_ms(500);
+		_delay_ms(25);
 		
 		SendStringPC("Potatoes are the coolest!\n\r");
+		
+		if (CHECK_TX_SW()) {
+			ERROR_SET();
+		}
+		else{
+			ERROR_CLR();
+		}
     }
 }
 

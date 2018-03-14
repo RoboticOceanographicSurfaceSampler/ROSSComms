@@ -9,23 +9,8 @@
 #include "config.h"
 
 void configureIO(){
-	//Set the signal strength LEDs to be outputs
-	//PORTA.DIRSET = PIN4_bm;
-	//PORTA.DIRSET = PIN5_bm;
-	//PORTA.DIRSET = PIN6_bm;
 	
-	//Set STATUS and ERROR LEDs to be outputs
-	//PORTC.DIRSET = PIN1_bm;
-	//PORTC.DIRSET = PIN0_bm;
-	
-	//Set the settings switches to be inputs
-	//PORTC.DIRCLR = PIN2_bm;
-	//PORTC.DIRCLR = PIN3_bm;
-	
-	//Set pullups on the switches
-	//PORTC.PIN2CTRL = PORT_OPC_PULLUP_gc;
-	//PORTC.PIN3CTRL = PORT_OPC_PULLUP_gc;
-	//Set the RSSI pin as an input
+	//Set the RSSI Pin as an Input
 	PORTA.DIRCLR = PIN2_bm;
 	
 	//Set the NETWORK and PG inputs from the Iridium Modem as inputs
