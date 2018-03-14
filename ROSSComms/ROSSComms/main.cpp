@@ -42,11 +42,12 @@ int main(void)
 //	LOW_LEVEL_INTERRUPTS_ENABLE();
 //	sei();
 	
-	STATUS_CLR();
+	//Setup radios
+	XBEE_SLEEP();
+	IRIDIUM_SLEEP();
 	
-	PORTD.OUTSET = PIN5_bm;
+	//PORTD.OUTSET = PIN5_bm; //RGB LED Test
 	
-	//ERROR_SET();
 	STATUS_SET();
 	
 	SendStringPC("Hello, world :)\n\r");
@@ -62,9 +63,13 @@ int main(void)
 		
 		if (CHECK_TX_SW()) {
 			ERROR_SET();
+			//XBEE_WAKE();
+			IRIDIUM_WAKE();
 		}
 		else{
 			ERROR_CLR();
+			//XBEE_SLEEP();
+			IRIDIUM_SLEEP();
 		}
     }
 }

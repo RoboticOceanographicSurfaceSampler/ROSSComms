@@ -14,6 +14,13 @@
 //Switch Input Macros
 #define CHECK_TX_SW(void) (!(PORTA.IN & PIN4_bm)) //Returns true if the radios should TX
 
+//XBee Power Macros (high to sleep, low to power on)
+#define XBEE_WAKE(void)  (PORTA.OUTCLR = PIN3_bm);
+#define XBEE_SLEEP(void) (PORTA.OUTSET = PIN3_bm);
+
+//Iridium Power Macros (high is on, low is off)
+#define IRIDIUM_WAKE(void)  (PORTA.OUTSET = PIN5_bm);
+#define IRIDIUM_SLEEP(void) (PORTA.OUTCLR = PIN5_bm);
 
 //RSSI Input from the XTend
 #define READ_RSSI_PIN(void) (PORTA.IN & PIN2_bm)

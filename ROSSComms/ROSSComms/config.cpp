@@ -23,7 +23,7 @@ void configureIO(){
 	//Set the Iridium ON/OFF output
 	PORTA.DIRSET = PIN5_bm;
 	
-	//Set the XBee S\L\E\E\P\_RQ connection
+	//Set the XBee S\L\E\E\P\_RQ connection (HIGH to sleep, LOW to power XBee ON)
 	PORTA.DIRSET = PIN3_bm;
 	
 	//Set the RGB LED Outputs
