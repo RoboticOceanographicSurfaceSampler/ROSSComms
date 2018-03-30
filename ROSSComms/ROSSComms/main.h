@@ -22,6 +22,17 @@
 void processRSSI();
 void outputSignalStrength(uint8_t str); //Accepts 0, 1, 2, or 3
 
+//usart
+extern void SendStringPC(char *stufftosend);
+extern void SendStringPC(const char stufftosend[]);
+extern void SendCharPC(char charToSend);
+extern void SendCharONOFF(char charToSend);
+extern void SendNumPC(uint8_t numToSend);
+extern void SendNumPC(uint16_t numToSend);
+extern void SendNumPC(int16_t numToSend);
+extern void SendNumPC(uint64_t numToSend);
+extern void SendFloatPC(double numToSend);
+
 /* Global Variables */
 extern uint8_t DeviceSignature[11];
 extern uint64_t UC_LOT_NUMBER;		//Contains a number genrated by the lot number

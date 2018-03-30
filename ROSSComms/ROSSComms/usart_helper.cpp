@@ -16,8 +16,32 @@ void SendStringPC(char *stufftosend){
 	}
 }
 
-//Can only send 16 bit numbers... TODO: Should this change?
+//Sends a string to the computer
+void SendStringPC(const char stufftosend[]){
+	for(int i = 0 ; stufftosend[i] != '\0' ; i++){
+		while(!USART_IsTXDataRegisterEmpty(&COMP_USART));
+		USART_PutChar(&COMP_USART, stufftosend[i]);
+	}
+}
+
+void SendCharPC(char charToSend){
+	USART_PutChar(&COMP_USART, charToSend);
+}
+
+
+void SendNumPC(uint8_t numToSend){
+	char buffer[10];
+	itoa(numToSend, buffer, 10);
+	SendStringPC(buffer);
+}
+
 void SendNumPC(uint16_t numToSend){
+	char buffer[20];
+	itoa(numToSend, buffer, 10);
+	SendStringPC(buffer);
+}
+
+void SendNumPC(int16_t numToSend){
 	char buffer[20];
 	itoa(numToSend, buffer, 10);
 	SendStringPC(buffer);
@@ -35,11 +59,11 @@ void SendNumPC(uint64_t numToSend){
 	
 	tempLSB = numToSend & 0xFFFFFFFF;	//Least significant four bytes
 	tempMSB = (uint32_t) ((numToSend & 0xFFFFFFFF00000000) >> 32);		//Most significant four bytes
-	
+		
 	if(tempMSB)
-	sprintf(buffer,"%lx%lx", tempMSB, tempLSB);
+		sprintf(buffer,"%lx%lx", tempMSB, tempLSB);		
 	else
-	sprintf(buffer,"%lx", tempLSB);
+		sprintf(buffer,"%lx", tempLSB);		
 	
 	SendStringPC(buffer);
 }
@@ -53,5 +77,6 @@ void SendFloatPC(double numToSend){
 	
 	sprintf(buffer, "%d.%04d", d1, abs(d2));
 	
+	//sprintf(buffer, "%f", numToSend);
 	SendStringPC(buffer);
-} 
+}

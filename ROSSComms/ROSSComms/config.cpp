@@ -214,7 +214,7 @@ void configureSerialNumber(){
 	serialNumber = -1; //Set the default serial number to -1 ("Not assigned yet")
 	
 	//Hardcoded serial number lookups (don't judge)
-	if(UC_LOT_NUMBER == 17117 && UC_WAFER_ID == 9715){
+	if(UC_LOT_NUMBER == 0x142DD && UC_WAFER_ID == 0x25F3){
 		serialNumber = 1;
 		SendStringPC("\n\rIdentified board.");
 	}

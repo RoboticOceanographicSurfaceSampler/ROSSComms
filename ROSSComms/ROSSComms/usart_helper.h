@@ -1,5 +1,5 @@
 /*
- * usartROSS.h
+ * usart_helper.h
  *
  * Created: 12/30/2015 1:47:28 PM
  *  Author: Nick McComb [nickmccomb.net]
@@ -12,7 +12,12 @@
 #include "project_header.h"
 
 void SendStringPC(char *stufftosend);
+void SendStringPC(const char stufftosend[]);
+void SendCharPC(char charToSend);
+void SendCharONOFF(char charToSend);
+void SendNumPC(uint8_t numToSend);
 void SendNumPC(uint16_t numToSend);
+void SendNumPC(int16_t numToSend);
 void SendNumPC(uint64_t numToSend);
 void SendFloatPC(double numToSend);
 
