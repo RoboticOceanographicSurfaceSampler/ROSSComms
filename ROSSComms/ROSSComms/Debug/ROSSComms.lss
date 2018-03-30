@@ -3,31 +3,31 @@ ROSSComms.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000030a  00000000  00000000  00000094  2**1
+  0 .text         00000714  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000002e  00802000  0000030a  0000039e  2**0
+  1 .data         0000012c  00802000  00000714  000007a8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000002  0080202e  0080202e  000003cc  2**0
+  2 .bss          0000001f  0080212c  0080212c  000008d4  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000003cc  2**0
+  3 .comment      00000030  00000000  00000000  000008d4  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000003fc  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000904  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000000b8  00000000  00000000  0000043c  2**0
+  5 .debug_aranges 000000d8  00000000  00000000  00000944  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003621  00000000  00000000  000004f4  2**0
+  6 .debug_info   00003e67  00000000  00000000  00000a1c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00002081  00000000  00000000  00003b15  2**0
+  7 .debug_abbrev 000021c0  00000000  00000000  00004883  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000009ea  00000000  00000000  00005b96  2**0
+  8 .debug_line   00000bf1  00000000  00000000  00006a43  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000001c0  00000000  00000000  00006580  2**2
+  9 .debug_frame  0000027c  00000000  00000000  00007634  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000247b  00000000  00000000  00006740  2**0
+ 10 .debug_str    000029bd  00000000  00000000  000078b0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000484  00000000  00000000  00008bbb  2**0
+ 11 .debug_loc    0000078e  00000000  00000000  0000a26d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000d0  00000000  00000000  0000903f  2**0
+ 12 .debug_ranges 000000f0  00000000  00000000  0000a9fb  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -40,12 +40,12 @@ Disassembly of section .text:
   10:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
   14:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
   18:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
-  1c:	0c 94 00 01 	jmp	0x200	; 0x200 <__vector_7>
-  20:	0c 94 0a 01 	jmp	0x214	; 0x214 <__vector_8>
+  1c:	0c 94 0c 01 	jmp	0x218	; 0x218 <__vector_7>
+  20:	0c 94 16 01 	jmp	0x22c	; 0x22c <__vector_8>
   24:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
   28:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
   2c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
-  30:	0c 94 e8 00 	jmp	0x1d0	; 0x1d0 <__vector_12>
+  30:	0c 94 f4 00 	jmp	0x1e8	; 0x1e8 <__vector_12>
   34:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
   38:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
   3c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
@@ -86,44 +86,44 @@ Disassembly of section .text:
   b6:	de bf       	out	0x3e, r29	; 62
 
 000000b8 <__do_copy_data>:
-  b8:	10 e2       	ldi	r17, 0x20	; 32
+  b8:	11 e2       	ldi	r17, 0x21	; 33
   ba:	a0 e0       	ldi	r26, 0x00	; 0
   bc:	b0 e2       	ldi	r27, 0x20	; 32
-  be:	ea e0       	ldi	r30, 0x0A	; 10
-  c0:	f3 e0       	ldi	r31, 0x03	; 3
+  be:	e4 e1       	ldi	r30, 0x14	; 20
+  c0:	f7 e0       	ldi	r31, 0x07	; 7
   c2:	02 c0       	rjmp	.+4      	; 0xc8 <__do_copy_data+0x10>
   c4:	05 90       	lpm	r0, Z+
   c6:	0d 92       	st	X+, r0
-  c8:	ae 32       	cpi	r26, 0x2E	; 46
+  c8:	ac 32       	cpi	r26, 0x2C	; 44
   ca:	b1 07       	cpc	r27, r17
   cc:	d9 f7       	brne	.-10     	; 0xc4 <__do_copy_data+0xc>
 
 000000ce <__do_clear_bss>:
-  ce:	20 e2       	ldi	r18, 0x20	; 32
-  d0:	ae e2       	ldi	r26, 0x2E	; 46
-  d2:	b0 e2       	ldi	r27, 0x20	; 32
+  ce:	21 e2       	ldi	r18, 0x21	; 33
+  d0:	ac e2       	ldi	r26, 0x2C	; 44
+  d2:	b1 e2       	ldi	r27, 0x21	; 33
   d4:	01 c0       	rjmp	.+2      	; 0xd8 <.do_clear_bss_start>
 
 000000d6 <.do_clear_bss_loop>:
   d6:	1d 92       	st	X+, r1
 
 000000d8 <.do_clear_bss_start>:
-  d8:	a0 33       	cpi	r26, 0x30	; 48
+  d8:	ab 34       	cpi	r26, 0x4B	; 75
   da:	b2 07       	cpc	r27, r18
   dc:	e1 f7       	brne	.-8      	; 0xd6 <.do_clear_bss_loop>
-  de:	0e 94 30 01 	call	0x260	; 0x260 <main>
-  e2:	0c 94 83 01 	jmp	0x306	; 0x306 <_exit>
+  de:	0e 94 8b 02 	call	0x516	; 0x516 <main>
+  e2:	0c 94 88 03 	jmp	0x710	; 0x710 <_exit>
 
 000000e6 <__bad_interrupt>:
   e6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000ea <_Z11configureIOv>:
-	CLK.RTCCTRL = CLK_RTCSRC_RCOSC32_gc;					//Set the RTC input as the 32.768kHz internal oscillator
-	CLK.RTCCTRL |= CLK_RTCEN_bm;							//Enable the clock input
-	
-	//Testing setup code
-	RTC.COMP = 16384; //~1 second? Assuming 32.768 KHz
-	RTC.PER = 0xFF00;  //No tengo nuguien idea
+
+	/* Clean up NVM Command register. */
+	NVM_CMD = NVM_CMD_NO_OPERATION_gc;
+
+	return( result );
+}
   ea:	a0 e0       	ldi	r26, 0x00	; 0
   ec:	b6 e0       	ldi	r27, 0x06	; 6
   ee:	34 e0       	ldi	r19, 0x04	; 4
@@ -242,262 +242,823 @@ Disassembly of section .text:
  1cc:	83 83       	std	Z+3, r24	; 0x03
  1ce:	08 95       	ret
 
-000001d0 <__vector_12>:
- 1d0:	1f 92       	push	r1
- 1d2:	0f 92       	push	r0
- 1d4:	0f b6       	in	r0, 0x3f	; 63
- 1d6:	0f 92       	push	r0
- 1d8:	11 24       	eor	r1, r1
- 1da:	8f 93       	push	r24
- 1dc:	ef 93       	push	r30
- 1de:	ff 93       	push	r31
- 1e0:	e0 e0       	ldi	r30, 0x00	; 0
- 1e2:	f8 e0       	ldi	r31, 0x08	; 8
- 1e4:	84 85       	ldd	r24, Z+12	; 0x0c
- 1e6:	81 60       	ori	r24, 0x01	; 1
- 1e8:	84 87       	std	Z+12, r24	; 0x0c
- 1ea:	81 e0       	ldi	r24, 0x01	; 1
- 1ec:	80 93 2f 20 	sts	0x202F, r24	; 0x80202f <broadcastStatus>
- 1f0:	ff 91       	pop	r31
- 1f2:	ef 91       	pop	r30
- 1f4:	8f 91       	pop	r24
- 1f6:	0f 90       	pop	r0
- 1f8:	0f be       	out	0x3f, r0	; 63
- 1fa:	0f 90       	pop	r0
- 1fc:	1f 90       	pop	r1
- 1fe:	18 95       	reti
+000001d0 <_Z21configureTimerCounterv>:
+ 1d0:	e0 e0       	ldi	r30, 0x00	; 0
+ 1d2:	f8 e0       	ldi	r31, 0x08	; 8
+ 1d4:	87 e0       	ldi	r24, 0x07	; 7
+ 1d6:	80 83       	st	Z, r24
+ 1d8:	89 e0       	ldi	r24, 0x09	; 9
+ 1da:	9d e3       	ldi	r25, 0x3D	; 61
+ 1dc:	86 a3       	std	Z+38, r24	; 0x26
+ 1de:	97 a3       	std	Z+39, r25	; 0x27
+ 1e0:	11 82       	std	Z+1, r1	; 0x01
+ 1e2:	81 e0       	ldi	r24, 0x01	; 1
+ 1e4:	86 83       	std	Z+6, r24	; 0x06
+ 1e6:	08 95       	ret
 
-00000200 <__vector_7>:
-
-}
-
-ISR(RTC_OVF_vect){
- 200:	1f 92       	push	r1
- 202:	0f 92       	push	r0
- 204:	0f b6       	in	r0, 0x3f	; 63
- 206:	0f 92       	push	r0
- 208:	11 24       	eor	r1, r1
-	
-}
- 20a:	0f 90       	pop	r0
- 20c:	0f be       	out	0x3f, r0	; 63
+000001e8 <__vector_12>:
+ 1e8:	1f 92       	push	r1
+ 1ea:	0f 92       	push	r0
+ 1ec:	0f b6       	in	r0, 0x3f	; 63
+ 1ee:	0f 92       	push	r0
+ 1f0:	11 24       	eor	r1, r1
+ 1f2:	8f 93       	push	r24
+ 1f4:	ef 93       	push	r30
+ 1f6:	ff 93       	push	r31
+ 1f8:	e0 e0       	ldi	r30, 0x00	; 0
+ 1fa:	f8 e0       	ldi	r31, 0x08	; 8
+ 1fc:	84 85       	ldd	r24, Z+12	; 0x0c
+ 1fe:	81 60       	ori	r24, 0x01	; 1
+ 200:	84 87       	std	Z+12, r24	; 0x0c
+ 202:	81 e0       	ldi	r24, 0x01	; 1
+ 204:	80 93 4a 21 	sts	0x214A, r24	; 0x80214a <broadcastStatus>
+ 208:	ff 91       	pop	r31
+ 20a:	ef 91       	pop	r30
+ 20c:	8f 91       	pop	r24
  20e:	0f 90       	pop	r0
- 210:	1f 90       	pop	r1
- 212:	18 95       	reti
+ 210:	0f be       	out	0x3f, r0	; 63
+ 212:	0f 90       	pop	r0
+ 214:	1f 90       	pop	r1
+ 216:	18 95       	reti
 
-00000214 <__vector_8>:
-
-ISR(RTC_COMP_vect){
- 214:	1f 92       	push	r1
- 216:	0f 92       	push	r0
- 218:	0f b6       	in	r0, 0x3f	; 63
+00000218 <__vector_7>:
+ 218:	1f 92       	push	r1
  21a:	0f 92       	push	r0
- 21c:	11 24       	eor	r1, r1
- 21e:	8f 93       	push	r24
- 220:	ef 93       	push	r30
- 222:	ff 93       	push	r31
-	if(globalToggle){
- 224:	80 91 2e 20 	lds	r24, 0x202E	; 0x80202e <__data_end>
- 228:	88 23       	and	r24, r24
- 22a:	31 f0       	breq	.+12     	; 0x238 <__vector_8+0x24>
-		STATUS_CLR();
- 22c:	84 e0       	ldi	r24, 0x04	; 4
- 22e:	80 93 46 06 	sts	0x0646, r24	; 0x800646 <__TEXT_REGION_LENGTH__+0x700646>
-		globalToggle = 0;
- 232:	10 92 2e 20 	sts	0x202E, r1	; 0x80202e <__data_end>
- 236:	06 c0       	rjmp	.+12     	; 0x244 <__vector_8+0x30>
-	}
-	else{
-		STATUS_SET();
- 238:	84 e0       	ldi	r24, 0x04	; 4
- 23a:	80 93 45 06 	sts	0x0645, r24	; 0x800645 <__TEXT_REGION_LENGTH__+0x700645>
-		globalToggle = 1;
- 23e:	81 e0       	ldi	r24, 0x01	; 1
- 240:	80 93 2e 20 	sts	0x202E, r24	; 0x80202e <__data_end>
+ 21c:	0f b6       	in	r0, 0x3f	; 63
+ 21e:	0f 92       	push	r0
+ 220:	11 24       	eor	r1, r1
+ 222:	0f 90       	pop	r0
+ 224:	0f be       	out	0x3f, r0	; 63
+ 226:	0f 90       	pop	r0
+ 228:	1f 90       	pop	r1
+ 22a:	18 95       	reti
+
+0000022c <__vector_8>:
+ 22c:	1f 92       	push	r1
+ 22e:	0f 92       	push	r0
+ 230:	0f b6       	in	r0, 0x3f	; 63
+ 232:	0f 92       	push	r0
+ 234:	11 24       	eor	r1, r1
+ 236:	8f 93       	push	r24
+ 238:	ef 93       	push	r30
+ 23a:	ff 93       	push	r31
+ 23c:	80 91 49 21 	lds	r24, 0x2149	; 0x802149 <globalToggle>
+ 240:	88 23       	and	r24, r24
+ 242:	31 f0       	breq	.+12     	; 0x250 <__vector_8+0x24>
+ 244:	84 e0       	ldi	r24, 0x04	; 4
+ 246:	80 93 46 06 	sts	0x0646, r24	; 0x800646 <__TEXT_REGION_LENGTH__+0x700646>
+ 24a:	10 92 49 21 	sts	0x2149, r1	; 0x802149 <globalToggle>
+ 24e:	06 c0       	rjmp	.+12     	; 0x25c <__vector_8+0x30>
+ 250:	84 e0       	ldi	r24, 0x04	; 4
+ 252:	80 93 45 06 	sts	0x0645, r24	; 0x800645 <__TEXT_REGION_LENGTH__+0x700645>
+ 256:	81 e0       	ldi	r24, 0x01	; 1
+ 258:	80 93 49 21 	sts	0x2149, r24	; 0x802149 <globalToggle>
+ 25c:	e0 e0       	ldi	r30, 0x00	; 0
+ 25e:	f4 e0       	ldi	r31, 0x04	; 4
+ 260:	10 86       	std	Z+8, r1	; 0x08
+ 262:	11 86       	std	Z+9, r1	; 0x09
+ 264:	82 e0       	ldi	r24, 0x02	; 2
+ 266:	83 83       	std	Z+3, r24	; 0x03
+ 268:	ff 91       	pop	r31
+ 26a:	ef 91       	pop	r30
+ 26c:	8f 91       	pop	r24
+ 26e:	0f 90       	pop	r0
+ 270:	0f be       	out	0x3f, r0	; 63
+ 272:	0f 90       	pop	r0
+ 274:	1f 90       	pop	r1
+ 276:	18 95       	reti
+
+00000278 <_Z17ReadSignatureBytej>:
+
+uint8_t ReadSignatureByte(uint16_t Address)
+{
+	NVM_CMD = NVM_CMD_READ_CALIB_ROW_gc;
+ 278:	aa ec       	ldi	r26, 0xCA	; 202
+ 27a:	b1 e0       	ldi	r27, 0x01	; 1
+ 27c:	22 e0       	ldi	r18, 0x02	; 2
+ 27e:	2c 93       	st	X, r18
+	uint8_t Result;
+	__asm__ ("lpm %0, Z\n" : "=r" (Result) : "z" (Address));
+ 280:	fc 01       	movw	r30, r24
+ 282:	84 91       	lpm	r24, Z
+	//  __asm__ ("lpm \n  mov %0, r0 \n" : "=r" (Result) : "z" (Address) : "r0");
+	NVM_CMD = NVM_CMD_NO_OPERATION_gc;
+ 284:	1c 92       	st	X, r1
+	return Result;
+}
+ 286:	08 95       	ret
+
+00000288 <_Z21configureSerialNumberv>:
+
+/*
+Note: This function requires serial and should be called after configureUSART()
+*/
+void configureSerialNumber(){
+ 288:	2f 92       	push	r2
+ 28a:	3f 92       	push	r3
+ 28c:	4f 92       	push	r4
+ 28e:	5f 92       	push	r5
+ 290:	6f 92       	push	r6
+ 292:	7f 92       	push	r7
+ 294:	8f 92       	push	r8
+ 296:	9f 92       	push	r9
+ 298:	af 92       	push	r10
+ 29a:	bf 92       	push	r11
+ 29c:	cf 92       	push	r12
+ 29e:	df 92       	push	r13
+ 2a0:	ef 92       	push	r14
+ 2a2:	ff 92       	push	r15
+ 2a4:	0f 93       	push	r16
+ 2a6:	1f 93       	push	r17
+ 2a8:	cf 93       	push	r28
+ 2aa:	df 93       	push	r29
+	DeviceSignature[ 0] = ReadSignatureByte(LOTNUM0);
+ 2ac:	88 e0       	ldi	r24, 0x08	; 8
+ 2ae:	90 e0       	ldi	r25, 0x00	; 0
+ 2b0:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2b4:	ce e3       	ldi	r28, 0x3E	; 62
+ 2b6:	d1 e2       	ldi	r29, 0x21	; 33
+ 2b8:	88 83       	st	Y, r24
+	DeviceSignature[ 1] = ReadSignatureByte(LOTNUM1);
+ 2ba:	89 e0       	ldi	r24, 0x09	; 9
+ 2bc:	90 e0       	ldi	r25, 0x00	; 0
+ 2be:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2c2:	89 83       	std	Y+1, r24	; 0x01
+	DeviceSignature[ 2] = ReadSignatureByte(LOTNUM2);
+ 2c4:	8a e0       	ldi	r24, 0x0A	; 10
+ 2c6:	90 e0       	ldi	r25, 0x00	; 0
+ 2c8:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2cc:	8a 83       	std	Y+2, r24	; 0x02
+	DeviceSignature[ 3] = ReadSignatureByte(LOTNUM3);
+ 2ce:	8b e0       	ldi	r24, 0x0B	; 11
+ 2d0:	90 e0       	ldi	r25, 0x00	; 0
+ 2d2:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2d6:	8b 83       	std	Y+3, r24	; 0x03
+	DeviceSignature[ 4] = ReadSignatureByte(LOTNUM4);
+ 2d8:	8c e0       	ldi	r24, 0x0C	; 12
+ 2da:	90 e0       	ldi	r25, 0x00	; 0
+ 2dc:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2e0:	8c 83       	std	Y+4, r24	; 0x04
+	DeviceSignature[ 5] = ReadSignatureByte(LOTNUM5);
+ 2e2:	8d e0       	ldi	r24, 0x0D	; 13
+ 2e4:	90 e0       	ldi	r25, 0x00	; 0
+ 2e6:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2ea:	8d 83       	std	Y+5, r24	; 0x05
+	DeviceSignature[ 6] = ReadSignatureByte(WAFNUM );
+ 2ec:	80 e1       	ldi	r24, 0x10	; 16
+ 2ee:	90 e0       	ldi	r25, 0x00	; 0
+ 2f0:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2f4:	8e 83       	std	Y+6, r24	; 0x06
+	DeviceSignature[ 7] = ReadSignatureByte(COORDX0);
+ 2f6:	82 e1       	ldi	r24, 0x12	; 18
+ 2f8:	90 e0       	ldi	r25, 0x00	; 0
+ 2fa:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 2fe:	8f 83       	std	Y+7, r24	; 0x07
+	DeviceSignature[ 8] = ReadSignatureByte(COORDX1);
+ 300:	83 e1       	ldi	r24, 0x13	; 19
+ 302:	90 e0       	ldi	r25, 0x00	; 0
+ 304:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 308:	88 87       	std	Y+8, r24	; 0x08
+	DeviceSignature[ 9] = ReadSignatureByte(COORDY0);
+ 30a:	84 e1       	ldi	r24, 0x14	; 20
+ 30c:	90 e0       	ldi	r25, 0x00	; 0
+ 30e:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 312:	89 87       	std	Y+9, r24	; 0x09
+	DeviceSignature[10] = ReadSignatureByte(COORDY1);
+ 314:	85 e1       	ldi	r24, 0x15	; 21
+ 316:	90 e0       	ldi	r25, 0x00	; 0
+ 318:	0e 94 3c 01 	call	0x278	; 0x278 <_Z17ReadSignatureBytej>
+ 31c:	8a 87       	std	Y+10, r24	; 0x0a
+	
+	UC_LOT_NUMBER = DeviceSignature[0];
+ 31e:	28 80       	ld	r2, Y
+ 320:	31 2c       	mov	r3, r1
+ 322:	41 2c       	mov	r4, r1
+ 324:	51 2c       	mov	r5, r1
+ 326:	61 2c       	mov	r6, r1
+ 328:	71 2c       	mov	r7, r1
+ 32a:	43 01       	movw	r8, r6
+ 32c:	af e3       	ldi	r26, 0x3F	; 63
+ 32e:	b1 e2       	ldi	r27, 0x21	; 33
+ 330:	e4 e6       	ldi	r30, 0x64	; 100
+ 332:	f0 e0       	ldi	r31, 0x00	; 0
+	
+	for(int i = 1; i < 6; ++i){
+		UC_LOT_NUMBER += DeviceSignature[i] * (100*i);//(DeviceSignature[i] << i*8);
+ 334:	8d 91       	ld	r24, X+
+ 336:	8e 9f       	mul	r24, r30
+ 338:	e0 01       	movw	r28, r0
+ 33a:	8f 9f       	mul	r24, r31
+ 33c:	d0 0d       	add	r29, r0
+ 33e:	11 24       	eor	r1, r1
+ 340:	1d 2f       	mov	r17, r29
+ 342:	11 0f       	add	r17, r17
+ 344:	11 0b       	sbc	r17, r17
+ 346:	22 2d       	mov	r18, r2
+ 348:	33 2d       	mov	r19, r3
+ 34a:	44 2d       	mov	r20, r4
+ 34c:	55 2d       	mov	r21, r5
+ 34e:	66 2d       	mov	r22, r6
+ 350:	77 2d       	mov	r23, r7
+ 352:	88 2d       	mov	r24, r8
+ 354:	99 2d       	mov	r25, r9
+ 356:	ac 2e       	mov	r10, r28
+ 358:	bd 2e       	mov	r11, r29
+ 35a:	c1 2e       	mov	r12, r17
+ 35c:	d1 2e       	mov	r13, r17
+ 35e:	e1 2e       	mov	r14, r17
+ 360:	f1 2e       	mov	r15, r17
+ 362:	01 2f       	mov	r16, r17
+ 364:	0e 94 4a 03 	call	0x694	; 0x694 <__adddi3>
+ 368:	22 2e       	mov	r2, r18
+ 36a:	33 2e       	mov	r3, r19
+ 36c:	44 2e       	mov	r4, r20
+ 36e:	55 2e       	mov	r5, r21
+ 370:	66 2e       	mov	r6, r22
+ 372:	77 2e       	mov	r7, r23
+ 374:	88 2e       	mov	r8, r24
+ 376:	99 2e       	mov	r9, r25
+ 378:	ec 59       	subi	r30, 0x9C	; 156
+ 37a:	ff 4f       	sbci	r31, 0xFF	; 255
+	DeviceSignature[ 9] = ReadSignatureByte(COORDY0);
+	DeviceSignature[10] = ReadSignatureByte(COORDY1);
+	
+	UC_LOT_NUMBER = DeviceSignature[0];
+	
+	for(int i = 1; i < 6; ++i){
+ 37c:	e8 35       	cpi	r30, 0x58	; 88
+ 37e:	82 e0       	ldi	r24, 0x02	; 2
+ 380:	f8 07       	cpc	r31, r24
+ 382:	c1 f6       	brne	.-80     	; 0x334 <_Z21configureSerialNumberv+0xac>
+ 384:	20 92 36 21 	sts	0x2136, r2	; 0x802136 <UC_LOT_NUMBER>
+ 388:	30 92 37 21 	sts	0x2137, r3	; 0x802137 <UC_LOT_NUMBER+0x1>
+ 38c:	40 92 38 21 	sts	0x2138, r4	; 0x802138 <UC_LOT_NUMBER+0x2>
+ 390:	50 92 39 21 	sts	0x2139, r5	; 0x802139 <UC_LOT_NUMBER+0x3>
+ 394:	60 92 3a 21 	sts	0x213A, r6	; 0x80213a <UC_LOT_NUMBER+0x4>
+ 398:	70 92 3b 21 	sts	0x213B, r7	; 0x80213b <UC_LOT_NUMBER+0x5>
+ 39c:	80 92 3c 21 	sts	0x213C, r8	; 0x80213c <UC_LOT_NUMBER+0x6>
+ 3a0:	90 92 3d 21 	sts	0x213D, r9	; 0x80213d <UC_LOT_NUMBER+0x7>
+		UC_LOT_NUMBER += DeviceSignature[i] * (100*i);//(DeviceSignature[i] << i*8);
 	}
 	
-	RTC.CNT = 0;
- 244:	e0 e0       	ldi	r30, 0x00	; 0
- 246:	f4 e0       	ldi	r31, 0x04	; 4
- 248:	10 86       	std	Z+8, r1	; 0x08
- 24a:	11 86       	std	Z+9, r1	; 0x09
-	RTC.INTFLAGS = 0x02;
- 24c:	82 e0       	ldi	r24, 0x02	; 2
- 24e:	83 83       	std	Z+3, r24	; 0x03
+	UC_WAFER_ID = DeviceSignature[6];
+ 3a4:	ee e3       	ldi	r30, 0x3E	; 62
+ 3a6:	f1 e2       	ldi	r31, 0x21	; 33
+ 3a8:	26 81       	ldd	r18, Z+6	; 0x06
+	
+	for(int i = 1; i < 4; ++i){  //Original stops at 5
+		UC_WAFER_ID += DeviceSignature[i+6] * (100*i);
+ 3aa:	a7 81       	ldd	r26, Z+7	; 0x07
+ 3ac:	c4 e6       	ldi	r28, 0x64	; 100
+ 3ae:	ac 9f       	mul	r26, r28
+ 3b0:	d0 01       	movw	r26, r0
+ 3b2:	11 24       	eor	r1, r1
+ 3b4:	1b 2f       	mov	r17, r27
+ 3b6:	11 0f       	add	r17, r17
+ 3b8:	11 0b       	sbc	r17, r17
+ 3ba:	30 e0       	ldi	r19, 0x00	; 0
+ 3bc:	40 e0       	ldi	r20, 0x00	; 0
+ 3be:	50 e0       	ldi	r21, 0x00	; 0
+ 3c0:	60 e0       	ldi	r22, 0x00	; 0
+ 3c2:	70 e0       	ldi	r23, 0x00	; 0
+ 3c4:	80 e0       	ldi	r24, 0x00	; 0
+ 3c6:	90 e0       	ldi	r25, 0x00	; 0
+ 3c8:	aa 2e       	mov	r10, r26
+ 3ca:	bb 2e       	mov	r11, r27
+ 3cc:	c1 2e       	mov	r12, r17
+ 3ce:	d1 2e       	mov	r13, r17
+ 3d0:	e1 2e       	mov	r14, r17
+ 3d2:	f1 2e       	mov	r15, r17
+ 3d4:	01 2f       	mov	r16, r17
+ 3d6:	0e 94 4a 03 	call	0x694	; 0x694 <__adddi3>
+ 3da:	a0 85       	ldd	r26, Z+8	; 0x08
+ 3dc:	c8 ec       	ldi	r28, 0xC8	; 200
+ 3de:	ac 9f       	mul	r26, r28
+ 3e0:	d0 01       	movw	r26, r0
+ 3e2:	11 24       	eor	r1, r1
+ 3e4:	1b 2f       	mov	r17, r27
+ 3e6:	11 0f       	add	r17, r17
+ 3e8:	11 0b       	sbc	r17, r17
+ 3ea:	aa 2e       	mov	r10, r26
+ 3ec:	bb 2e       	mov	r11, r27
+ 3ee:	c1 2e       	mov	r12, r17
+ 3f0:	d1 2e       	mov	r13, r17
+ 3f2:	e1 2e       	mov	r14, r17
+ 3f4:	f1 2e       	mov	r15, r17
+ 3f6:	01 2f       	mov	r16, r17
+ 3f8:	0e 94 4a 03 	call	0x694	; 0x694 <__adddi3>
+ 3fc:	c1 85       	ldd	r28, Z+9	; 0x09
+ 3fe:	ac e2       	ldi	r26, 0x2C	; 44
+ 400:	b1 e0       	ldi	r27, 0x01	; 1
+ 402:	ca 9f       	mul	r28, r26
+ 404:	f0 01       	movw	r30, r0
+ 406:	cb 9f       	mul	r28, r27
+ 408:	f0 0d       	add	r31, r0
+ 40a:	11 24       	eor	r1, r1
+ 40c:	1f 2f       	mov	r17, r31
+ 40e:	11 0f       	add	r17, r17
+ 410:	11 0b       	sbc	r17, r17
+ 412:	ae 2e       	mov	r10, r30
+ 414:	bf 2e       	mov	r11, r31
+ 416:	c1 2e       	mov	r12, r17
+ 418:	d1 2e       	mov	r13, r17
+ 41a:	e1 2e       	mov	r14, r17
+ 41c:	f1 2e       	mov	r15, r17
+ 41e:	01 2f       	mov	r16, r17
+ 420:	0e 94 4a 03 	call	0x694	; 0x694 <__adddi3>
+ 424:	20 93 2e 21 	sts	0x212E, r18	; 0x80212e <UC_WAFER_ID>
+ 428:	30 93 2f 21 	sts	0x212F, r19	; 0x80212f <UC_WAFER_ID+0x1>
+ 42c:	40 93 30 21 	sts	0x2130, r20	; 0x802130 <UC_WAFER_ID+0x2>
+ 430:	50 93 31 21 	sts	0x2131, r21	; 0x802131 <UC_WAFER_ID+0x3>
+ 434:	60 93 32 21 	sts	0x2132, r22	; 0x802132 <UC_WAFER_ID+0x4>
+ 438:	70 93 33 21 	sts	0x2133, r23	; 0x802133 <UC_WAFER_ID+0x5>
+ 43c:	80 93 34 21 	sts	0x2134, r24	; 0x802134 <UC_WAFER_ID+0x6>
+ 440:	90 93 35 21 	sts	0x2135, r25	; 0x802135 <UC_WAFER_ID+0x7>
+	}
+	
+	serialNumber = -1; //Set the default serial number to -1 ("Not assigned yet")
+ 444:	8f ef       	ldi	r24, 0xFF	; 255
+ 446:	9f ef       	ldi	r25, 0xFF	; 255
+ 448:	80 93 2c 21 	sts	0x212C, r24	; 0x80212c <__data_end>
+ 44c:	90 93 2d 21 	sts	0x212D, r25	; 0x80212d <__data_end+0x1>
+	
+	//Hardcoded serial number lookups (don't judge)
+	if(UC_LOT_NUMBER == 17117 && UC_WAFER_ID == 9715){
+ 450:	22 2d       	mov	r18, r2
+ 452:	33 2d       	mov	r19, r3
+ 454:	44 2d       	mov	r20, r4
+ 456:	55 2d       	mov	r21, r5
+ 458:	66 2d       	mov	r22, r6
+ 45a:	77 2d       	mov	r23, r7
+ 45c:	88 2d       	mov	r24, r8
+ 45e:	99 2d       	mov	r25, r9
+ 460:	2d 3d       	cpi	r18, 0xDD	; 221
+ 462:	32 44       	sbci	r19, 0x42	; 66
+ 464:	41 05       	cpc	r20, r1
+ 466:	51 05       	cpc	r21, r1
+ 468:	61 05       	cpc	r22, r1
+ 46a:	71 05       	cpc	r23, r1
+ 46c:	81 05       	cpc	r24, r1
+ 46e:	91 05       	cpc	r25, r1
+ 470:	19 f5       	brne	.+70     	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+ 472:	20 91 2e 21 	lds	r18, 0x212E	; 0x80212e <UC_WAFER_ID>
+ 476:	30 91 2f 21 	lds	r19, 0x212F	; 0x80212f <UC_WAFER_ID+0x1>
+ 47a:	40 91 30 21 	lds	r20, 0x2130	; 0x802130 <UC_WAFER_ID+0x2>
+ 47e:	50 91 31 21 	lds	r21, 0x2131	; 0x802131 <UC_WAFER_ID+0x3>
+ 482:	60 91 32 21 	lds	r22, 0x2132	; 0x802132 <UC_WAFER_ID+0x4>
+ 486:	70 91 33 21 	lds	r23, 0x2133	; 0x802133 <UC_WAFER_ID+0x5>
+ 48a:	80 91 34 21 	lds	r24, 0x2134	; 0x802134 <UC_WAFER_ID+0x6>
+ 48e:	90 91 35 21 	lds	r25, 0x2135	; 0x802135 <UC_WAFER_ID+0x7>
+ 492:	23 3f       	cpi	r18, 0xF3	; 243
+ 494:	35 42       	sbci	r19, 0x25	; 37
+ 496:	41 05       	cpc	r20, r1
+ 498:	51 05       	cpc	r21, r1
+ 49a:	61 05       	cpc	r22, r1
+ 49c:	71 05       	cpc	r23, r1
+ 49e:	81 05       	cpc	r24, r1
+ 4a0:	91 05       	cpc	r25, r1
+ 4a2:	51 f4       	brne	.+20     	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
+		serialNumber = 1;
+ 4a4:	81 e0       	ldi	r24, 0x01	; 1
+ 4a6:	90 e0       	ldi	r25, 0x00	; 0
+ 4a8:	80 93 2c 21 	sts	0x212C, r24	; 0x80212c <__data_end>
+ 4ac:	90 93 2d 21 	sts	0x212D, r25	; 0x80212d <__data_end+0x1>
+		SendStringPC("\n\rIdentified board.");
+ 4b0:	80 e0       	ldi	r24, 0x00	; 0
+ 4b2:	90 e2       	ldi	r25, 0x20	; 32
+ 4b4:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+	}
+	
+	#ifdef OUTPUT_LOT_AND_WAFER_INFO
+		SendStringPC((char *)"#[Lot ID Number: ");
+ 4b8:	84 e1       	ldi	r24, 0x14	; 20
+ 4ba:	90 e2       	ldi	r25, 0x20	; 32
+ 4bc:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+		SendNumPC(UC_LOT_NUMBER);
+ 4c0:	80 91 36 21 	lds	r24, 0x2136	; 0x802136 <UC_LOT_NUMBER>
+ 4c4:	90 91 37 21 	lds	r25, 0x2137	; 0x802137 <UC_LOT_NUMBER+0x1>
+ 4c8:	0e 94 33 03 	call	0x666	; 0x666 <_Z9SendNumPCj>
+		SendStringPC((char *)"]");
+ 4cc:	86 e2       	ldi	r24, 0x26	; 38
+ 4ce:	90 e2       	ldi	r25, 0x20	; 32
+ 4d0:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+		
+		SendStringPC((char *)"[Wafer ID Number: ");
+ 4d4:	88 e2       	ldi	r24, 0x28	; 40
+ 4d6:	90 e2       	ldi	r25, 0x20	; 32
+ 4d8:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+		SendNumPC(UC_WAFER_ID);
+ 4dc:	80 91 2e 21 	lds	r24, 0x212E	; 0x80212e <UC_WAFER_ID>
+ 4e0:	90 91 2f 21 	lds	r25, 0x212F	; 0x80212f <UC_WAFER_ID+0x1>
+ 4e4:	0e 94 33 03 	call	0x666	; 0x666 <_Z9SendNumPCj>
+		SendStringPC((char *)"]");
+ 4e8:	86 e2       	ldi	r24, 0x26	; 38
+ 4ea:	90 e2       	ldi	r25, 0x20	; 32
+ 4ec:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+	#endif
+ 4f0:	df 91       	pop	r29
+ 4f2:	cf 91       	pop	r28
+ 4f4:	1f 91       	pop	r17
+ 4f6:	0f 91       	pop	r16
+ 4f8:	ff 90       	pop	r15
+ 4fa:	ef 90       	pop	r14
+ 4fc:	df 90       	pop	r13
+ 4fe:	cf 90       	pop	r12
+ 500:	bf 90       	pop	r11
+ 502:	af 90       	pop	r10
+ 504:	9f 90       	pop	r9
+ 506:	8f 90       	pop	r8
+ 508:	7f 90       	pop	r7
+ 50a:	6f 90       	pop	r6
+ 50c:	5f 90       	pop	r5
+ 50e:	4f 90       	pop	r4
+ 510:	3f 90       	pop	r3
+ 512:	2f 90       	pop	r2
+ 514:	08 95       	ret
 
- 250:	ff 91       	pop	r31
- 252:	ef 91       	pop	r30
- 254:	8f 91       	pop	r24
- 256:	0f 90       	pop	r0
- 258:	0f be       	out	0x3f, r0	; 63
- 25a:	0f 90       	pop	r0
- 25c:	1f 90       	pop	r1
- 25e:	18 95       	reti
+00000516 <main>:
 
-00000260 <main>:
 
 int main(void)
 {
 
-	//configure32MhzInternalOsc();
 	configureIO();	
- 260:	0e 94 75 00 	call	0xea	; 0xea <_Z11configureIOv>
+ 516:	0e 94 75 00 	call	0xea	; 0xea <_Z11configureIOv>
 	configureExternalOscillator();
- 264:	0e 94 9a 00 	call	0x134	; 0x134 <_Z27configureExternalOscillatorv>
-	//
+ 51a:	0e 94 9a 00 	call	0x134	; 0x134 <_Z27configureExternalOscillatorv>
 	configureUSART();
- 268:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <_Z14configureUSARTv>
+ 51e:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <_Z14configureUSARTv>
+	configureSerialNumber();
+ 522:	0e 94 44 01 	call	0x288	; 0x288 <_Z21configureSerialNumberv>
+	configureTimerCounter();
+ 526:	0e 94 e8 00 	call	0x1d0	; 0x1d0 <_Z21configureTimerCounterv>
 
-//	LOW_LEVEL_INTERRUPTS_ENABLE();
-//	sei();
+	uint8_t receivedUSARTData;  //Holds received bytes from serial devices
+
+	LOW_LEVEL_INTERRUPTS_ENABLE();
+ 52a:	e0 ea       	ldi	r30, 0xA0	; 160
+ 52c:	f0 e0       	ldi	r31, 0x00	; 0
+ 52e:	82 81       	ldd	r24, Z+2	; 0x02
+ 530:	81 60       	ori	r24, 0x01	; 1
+ 532:	82 83       	std	Z+2, r24	; 0x02
+	sei();
+ 534:	78 94       	sei
 	
 	//Setup radios
 	XBEE_SLEEP();
- 26c:	e0 e0       	ldi	r30, 0x00	; 0
- 26e:	f6 e0       	ldi	r31, 0x06	; 6
- 270:	88 e0       	ldi	r24, 0x08	; 8
- 272:	85 83       	std	Z+5, r24	; 0x05
+ 536:	e0 e0       	ldi	r30, 0x00	; 0
+ 538:	f6 e0       	ldi	r31, 0x06	; 6
+ 53a:	88 e0       	ldi	r24, 0x08	; 8
+ 53c:	85 83       	std	Z+5, r24	; 0x05
 	IRIDIUM_SLEEP();
- 274:	80 e2       	ldi	r24, 0x20	; 32
- 276:	86 83       	std	Z+6, r24	; 0x06
+ 53e:	80 e2       	ldi	r24, 0x20	; 32
+ 540:	86 83       	std	Z+6, r24	; 0x06
 	
 	//PORTD.OUTSET = PIN5_bm; //RGB LED Test
-	
-	STATUS_SET();
- 278:	84 e0       	ldi	r24, 0x04	; 4
- 27a:	80 93 45 06 	sts	0x0645, r24	; 0x800645 <__TEXT_REGION_LENGTH__+0x700645>
-	
-	SendStringPC("Hello, world :)\n\r");
- 27e:	80 e0       	ldi	r24, 0x00	; 0
- 280:	90 e2       	ldi	r25, 0x20	; 32
- 282:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z12SendStringPCPc>
-    while (1) 
+
+	//Init string with basic documentation
+	SendStringPC("\n\r#[INIT ROSE COMMS]\n\r");
+ 542:	8b e3       	ldi	r24, 0x3B	; 59
+ 544:	90 e2       	ldi	r25, 0x20	; 32
+ 546:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+	SendStringPC("#Firmware version ");
+ 54a:	82 e5       	ldi	r24, 0x52	; 82
+ 54c:	90 e2       	ldi	r25, 0x20	; 32
+ 54e:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+	SendStringPC(FIRMWARE_VERSION_STR);
+ 552:	85 e6       	ldi	r24, 0x65	; 101
+ 554:	90 e2       	ldi	r25, 0x20	; 32
+ 556:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+	SendStringPC("\n\r#Serial Number: ");
+ 55a:	89 e6       	ldi	r24, 0x69	; 105
+ 55c:	90 e2       	ldi	r25, 0x20	; 32
+ 55e:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+	if(serialNumber == -1)
+ 562:	80 91 2c 21 	lds	r24, 0x212C	; 0x80212c <__data_end>
+ 566:	90 91 2d 21 	lds	r25, 0x212D	; 0x80212d <__data_end+0x1>
+ 56a:	8f 3f       	cpi	r24, 0xFF	; 255
+ 56c:	2f ef       	ldi	r18, 0xFF	; 255
+ 56e:	92 07       	cpc	r25, r18
+ 570:	29 f4       	brne	.+10     	; 0x57c <main+0x66>
+		SendStringPC("NOT SET");
+ 572:	8c e7       	ldi	r24, 0x7C	; 124
+ 574:	90 e2       	ldi	r25, 0x20	; 32
+ 576:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+ 57a:	02 c0       	rjmp	.+4      	; 0x580 <main+0x6a>
+	else
+		SendNumPC(serialNumber);
+ 57c:	0e 94 33 03 	call	0x666	; 0x666 <_Z9SendNumPCj>
+	SendStringPC("\n\r#Msg format: Iridium Status | RSSI Value | Comms Status\n\r");
+ 580:	84 e8       	ldi	r24, 0x84	; 132
+ 582:	90 e2       	ldi	r25, 0x20	; 32
+ 584:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
     {
 		if(broadcastStatus){
 			broadcastStatus = 0;
+			//SendStringPC("Broadcast, yo\n\r");
 		}
 		STATUS_TOGGLE();
- 286:	c0 e4       	ldi	r28, 0x40	; 64
- 288:	d6 e0       	ldi	r29, 0x06	; 6
- 28a:	68 94       	set
- 28c:	dd 24       	eor	r13, r13
- 28e:	d2 f8       	bld	r13, 2
+ 588:	c0 e4       	ldi	r28, 0x40	; 64
+ 58a:	d6 e0       	ldi	r29, 0x06	; 6
+ 58c:	68 94       	set
+ 58e:	bb 24       	eor	r11, r11
+ 590:	b2 f8       	bld	r11, 2
 		_delay_ms(25);
 		
-		SendStringPC("Potatoes are the coolest!\n\r");
+		
+		if(USART_IsRXComplete(&COMP_USART)){
+ 592:	0f 2e       	mov	r0, r31
+ 594:	f0 ec       	ldi	r31, 0xC0	; 192
+ 596:	ef 2e       	mov	r14, r31
+ 598:	f8 e0       	ldi	r31, 0x08	; 8
+ 59a:	ff 2e       	mov	r15, r31
+ 59c:	f0 2d       	mov	r31, r0
+			}
+				
+			
+		}
 		
 		if (CHECK_TX_SW()) {
- 290:	00 e0       	ldi	r16, 0x00	; 0
- 292:	16 e0       	ldi	r17, 0x06	; 6
+ 59e:	00 e0       	ldi	r16, 0x00	; 0
+ 5a0:	16 e0       	ldi	r17, 0x06	; 6
 			ERROR_SET();
 			//XBEE_WAKE();
 			IRIDIUM_WAKE();
 		}
 		else{
 			ERROR_CLR();
- 294:	68 94       	set
- 296:	ee 24       	eor	r14, r14
- 298:	e3 f8       	bld	r14, 3
+ 5a2:	68 94       	set
+ 5a4:	cc 24       	eor	r12, r12
+ 5a6:	c3 f8       	bld	r12, 3
 			//XBEE_SLEEP();
 			IRIDIUM_SLEEP();
- 29a:	68 94       	set
- 29c:	ff 24       	eor	r15, r15
- 29e:	f5 f8       	bld	r15, 5
-	STATUS_SET();
+ 5a8:	68 94       	set
+ 5aa:	dd 24       	eor	r13, r13
+ 5ac:	d5 f8       	bld	r13, 5
+	SendStringPC("\n\r#Msg format: Iridium Status | RSSI Value | Comms Status\n\r");
 	
-	SendStringPC("Hello, world :)\n\r");
+	
     while (1) 
     {
 		if(broadcastStatus){
- 2a0:	80 91 2f 20 	lds	r24, 0x202F	; 0x80202f <broadcastStatus>
- 2a4:	81 11       	cpse	r24, r1
+ 5ae:	80 91 4a 21 	lds	r24, 0x214A	; 0x80214a <broadcastStatus>
+ 5b2:	81 11       	cpse	r24, r1
 			broadcastStatus = 0;
- 2a6:	10 92 2f 20 	sts	0x202F, r1	; 0x80202f <broadcastStatus>
+ 5b4:	10 92 4a 21 	sts	0x214A, r1	; 0x80214a <broadcastStatus>
+			//SendStringPC("Broadcast, yo\n\r");
 		}
 		STATUS_TOGGLE();
- 2aa:	8c 81       	ldd	r24, Y+4	; 0x04
- 2ac:	82 fd       	sbrc	r24, 2
- 2ae:	02 c0       	rjmp	.+4      	; 0x2b4 <main+0x54>
- 2b0:	dd 82       	std	Y+5, r13	; 0x05
- 2b2:	01 c0       	rjmp	.+2      	; 0x2b6 <main+0x56>
- 2b4:	de 82       	std	Y+6, r13	; 0x06
+ 5b8:	8c 81       	ldd	r24, Y+4	; 0x04
+ 5ba:	82 fd       	sbrc	r24, 2
+ 5bc:	02 c0       	rjmp	.+4      	; 0x5c2 <main+0xac>
+ 5be:	bd 82       	std	Y+5, r11	; 0x05
+ 5c0:	01 c0       	rjmp	.+2      	; 0x5c4 <main+0xae>
+ 5c2:	be 82       	std	Y+6, r11	; 0x06
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 2b6:	2f ef       	ldi	r18, 0xFF	; 255
- 2b8:	80 e7       	ldi	r24, 0x70	; 112
- 2ba:	92 e0       	ldi	r25, 0x02	; 2
- 2bc:	21 50       	subi	r18, 0x01	; 1
- 2be:	80 40       	sbci	r24, 0x00	; 0
- 2c0:	90 40       	sbci	r25, 0x00	; 0
- 2c2:	e1 f7       	brne	.-8      	; 0x2bc <main+0x5c>
- 2c4:	00 c0       	rjmp	.+0      	; 0x2c6 <main+0x66>
- 2c6:	00 00       	nop
+ 5c4:	8f ef       	ldi	r24, 0xFF	; 255
+ 5c6:	90 e7       	ldi	r25, 0x70	; 112
+ 5c8:	e2 e0       	ldi	r30, 0x02	; 2
+ 5ca:	81 50       	subi	r24, 0x01	; 1
+ 5cc:	90 40       	sbci	r25, 0x00	; 0
+ 5ce:	e0 40       	sbci	r30, 0x00	; 0
+ 5d0:	e1 f7       	brne	.-8      	; 0x5ca <main+0xb4>
+ 5d2:	00 c0       	rjmp	.+0      	; 0x5d4 <main+0xbe>
+ 5d4:	00 00       	nop
 		_delay_ms(25);
 		
-		SendStringPC("Potatoes are the coolest!\n\r");
- 2c8:	82 e1       	ldi	r24, 0x12	; 18
- 2ca:	90 e2       	ldi	r25, 0x20	; 32
- 2cc:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z12SendStringPCPc>
+		
+		if(USART_IsRXComplete(&COMP_USART)){
+ 5d6:	f7 01       	movw	r30, r14
+ 5d8:	81 81       	ldd	r24, Z+1	; 0x01
+ 5da:	88 23       	and	r24, r24
+ 5dc:	4c f5       	brge	.+82     	; 0x630 <main+0x11a>
+			SendStringPC("Received data. ");
+ 5de:	80 ec       	ldi	r24, 0xC0	; 192
+ 5e0:	90 e2       	ldi	r25, 0x20	; 32
+ 5e2:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+			SendStringPC("\n\r");
+ 5e6:	8f e4       	ldi	r24, 0x4F	; 79
+ 5e8:	90 e2       	ldi	r25, 0x20	; 32
+ 5ea:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+			receivedUSARTData = USART_GetChar(&COMP_USART);
+ 5ee:	f7 01       	movw	r30, r14
+ 5f0:	a0 80       	ld	r10, Z
+			
+			//Iridium Controls
+			if(receivedUSARTData == 40){ //Turn off Iridium Modem
+ 5f2:	f8 e2       	ldi	r31, 0x28	; 40
+ 5f4:	af 12       	cpse	r10, r31
+ 5f6:	05 c0       	rjmp	.+10     	; 0x602 <main+0xec>
+				SendStringPC("Turning off Iridium Modem\n\r");
+ 5f8:	80 ed       	ldi	r24, 0xD0	; 208
+ 5fa:	90 e2       	ldi	r25, 0x20	; 32
+ 5fc:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+ 600:	10 c0       	rjmp	.+32     	; 0x622 <main+0x10c>
+			}
+			if(receivedUSARTData == 41){ //Turn on Iridium Modem
+ 602:	29 e2       	ldi	r18, 0x29	; 41
+ 604:	a2 12       	cpse	r10, r18
+ 606:	05 c0       	rjmp	.+10     	; 0x612 <main+0xfc>
+				SendStringPC("Turning on Iridium Modem\n\r");
+ 608:	8c ee       	ldi	r24, 0xEC	; 236
+ 60a:	90 e2       	ldi	r25, 0x20	; 32
+ 60c:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+ 610:	0f c0       	rjmp	.+30     	; 0x630 <main+0x11a>
+			}
+			
+			//Xbee controls
+			if(receivedUSARTData == 50){ //Turn off XBee
+ 612:	82 e3       	ldi	r24, 0x32	; 50
+ 614:	a8 12       	cpse	r10, r24
+ 616:	05 c0       	rjmp	.+10     	; 0x622 <main+0x10c>
+				SendStringPC("Turning off Xbee\n\r");
+ 618:	87 e0       	ldi	r24, 0x07	; 7
+ 61a:	91 e2       	ldi	r25, 0x21	; 33
+ 61c:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+ 620:	07 c0       	rjmp	.+14     	; 0x630 <main+0x11a>
+			}
+			if(receivedUSARTData == 51){ //Turn on XBee
+ 622:	93 e3       	ldi	r25, 0x33	; 51
+ 624:	a9 12       	cpse	r10, r25
+ 626:	04 c0       	rjmp	.+8      	; 0x630 <main+0x11a>
+				SendStringPC("Turning on XBee\n\r");
+ 628:	8a e1       	ldi	r24, 0x1A	; 26
+ 62a:	91 e2       	ldi	r25, 0x21	; 33
+ 62c:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+			}
+				
+			
+		}
 		
 		if (CHECK_TX_SW()) {
- 2d0:	f8 01       	movw	r30, r16
- 2d2:	80 85       	ldd	r24, Z+8	; 0x08
- 2d4:	84 fd       	sbrc	r24, 4
- 2d6:	03 c0       	rjmp	.+6      	; 0x2de <main+0x7e>
+ 630:	f8 01       	movw	r30, r16
+ 632:	80 85       	ldd	r24, Z+8	; 0x08
+ 634:	84 fd       	sbrc	r24, 4
+ 636:	03 c0       	rjmp	.+6      	; 0x63e <main+0x128>
 			ERROR_SET();
- 2d8:	ed 82       	std	Y+5, r14	; 0x05
+ 638:	cd 82       	std	Y+5, r12	; 0x05
 			//XBEE_WAKE();
 			IRIDIUM_WAKE();
- 2da:	f5 82       	std	Z+5, r15	; 0x05
- 2dc:	e1 cf       	rjmp	.-62     	; 0x2a0 <main+0x40>
+ 63a:	d5 82       	std	Z+5, r13	; 0x05
+ 63c:	b8 cf       	rjmp	.-144    	; 0x5ae <main+0x98>
 		}
 		else{
 			ERROR_CLR();
- 2de:	ee 82       	std	Y+6, r14	; 0x06
+ 63e:	ce 82       	std	Y+6, r12	; 0x06
 			//XBEE_SLEEP();
 			IRIDIUM_SLEEP();
- 2e0:	f8 01       	movw	r30, r16
- 2e2:	f6 82       	std	Z+6, r15	; 0x06
- 2e4:	dd cf       	rjmp	.-70     	; 0x2a0 <main+0x40>
+ 640:	f8 01       	movw	r30, r16
+ 642:	d6 82       	std	Z+6, r13	; 0x06
+ 644:	b4 cf       	rjmp	.-152    	; 0x5ae <main+0x98>
 
-000002e6 <_Z12SendStringPCPc>:
+00000646 <_Z12SendStringPCPc>:
 #include "usart_helper.h"
 #include <stdio.h>
 
 //Sends a string to the computer
 void SendStringPC(char *stufftosend){
 	for(int i = 0 ; stufftosend[i] != '\0' ; i++){
- 2e6:	fc 01       	movw	r30, r24
- 2e8:	20 81       	ld	r18, Z
- 2ea:	22 23       	and	r18, r18
- 2ec:	59 f0       	breq	.+22     	; 0x304 <_Z12SendStringPCPc+0x1e>
- 2ee:	dc 01       	movw	r26, r24
- 2f0:	11 96       	adiw	r26, 0x01	; 1
+ 646:	fc 01       	movw	r30, r24
+ 648:	20 81       	ld	r18, Z
+ 64a:	22 23       	and	r18, r18
+ 64c:	59 f0       	breq	.+22     	; 0x664 <_Z12SendStringPCPc+0x1e>
+ 64e:	dc 01       	movw	r26, r24
+ 650:	11 96       	adiw	r26, 0x01	; 1
 		while(!USART_IsTXDataRegisterEmpty(&COMP_USART));
- 2f2:	e0 ec       	ldi	r30, 0xC0	; 192
- 2f4:	f8 e0       	ldi	r31, 0x08	; 8
- 2f6:	91 81       	ldd	r25, Z+1	; 0x01
- 2f8:	95 ff       	sbrs	r25, 5
- 2fa:	fd cf       	rjmp	.-6      	; 0x2f6 <_Z12SendStringPCPc+0x10>
+ 652:	e0 ec       	ldi	r30, 0xC0	; 192
+ 654:	f8 e0       	ldi	r31, 0x08	; 8
+ 656:	91 81       	ldd	r25, Z+1	; 0x01
+ 658:	95 ff       	sbrs	r25, 5
+ 65a:	fd cf       	rjmp	.-6      	; 0x656 <_Z12SendStringPCPc+0x10>
 		USART_PutChar(&COMP_USART, stufftosend[i]);
- 2fc:	20 83       	st	Z, r18
+ 65c:	20 83       	st	Z, r18
 #include "usart_helper.h"
 #include <stdio.h>
 
 //Sends a string to the computer
 void SendStringPC(char *stufftosend){
 	for(int i = 0 ; stufftosend[i] != '\0' ; i++){
- 2fe:	2d 91       	ld	r18, X+
- 300:	21 11       	cpse	r18, r1
- 302:	f9 cf       	rjmp	.-14     	; 0x2f6 <_Z12SendStringPCPc+0x10>
- 304:	08 95       	ret
+ 65e:	2d 91       	ld	r18, X+
+ 660:	21 11       	cpse	r18, r1
+ 662:	f9 cf       	rjmp	.-14     	; 0x656 <_Z12SendStringPCPc+0x10>
+ 664:	08 95       	ret
 
-00000306 <_exit>:
- 306:	f8 94       	cli
+00000666 <_Z9SendNumPCj>:
+		USART_PutChar(&COMP_USART, stufftosend[i]);
+	}
+}
 
-00000308 <__stop_program>:
- 308:	ff cf       	rjmp	.-2      	; 0x308 <__stop_program>
+//Can only send 16 bit numbers... TODO: Should this change?
+void SendNumPC(uint16_t numToSend){
+ 666:	cf 93       	push	r28
+ 668:	df 93       	push	r29
+ 66a:	cd b7       	in	r28, 0x3d	; 61
+ 66c:	de b7       	in	r29, 0x3e	; 62
+ 66e:	64 97       	sbiw	r28, 0x14	; 20
+ 670:	cd bf       	out	0x3d, r28	; 61
+ 672:	de bf       	out	0x3e, r29	; 62
+    } else if (__radix < 2 || __radix > 36) {
+	*__s = 0;
+	return __s;
+    } else {
+	extern char *__itoa_ncheck (int, char *, unsigned char);
+	return __itoa_ncheck (__val, __s, __radix);
+ 674:	4a e0       	ldi	r20, 0x0A	; 10
+ 676:	be 01       	movw	r22, r28
+ 678:	6f 5f       	subi	r22, 0xFF	; 255
+ 67a:	7f 4f       	sbci	r23, 0xFF	; 255
+ 67c:	0e 94 53 03 	call	0x6a6	; 0x6a6 <__itoa_ncheck>
+	char buffer[20];
+	itoa(numToSend, buffer, 10);
+	SendStringPC(buffer);
+ 680:	ce 01       	movw	r24, r28
+ 682:	01 96       	adiw	r24, 0x01	; 1
+ 684:	0e 94 23 03 	call	0x646	; 0x646 <_Z12SendStringPCPc>
+}
+ 688:	64 96       	adiw	r28, 0x14	; 20
+ 68a:	cd bf       	out	0x3d, r28	; 61
+ 68c:	de bf       	out	0x3e, r29	; 62
+ 68e:	df 91       	pop	r29
+ 690:	cf 91       	pop	r28
+ 692:	08 95       	ret
+
+00000694 <__adddi3>:
+ 694:	2a 0d       	add	r18, r10
+ 696:	3b 1d       	adc	r19, r11
+ 698:	4c 1d       	adc	r20, r12
+ 69a:	5d 1d       	adc	r21, r13
+ 69c:	6e 1d       	adc	r22, r14
+ 69e:	7f 1d       	adc	r23, r15
+ 6a0:	80 1f       	adc	r24, r16
+ 6a2:	91 1f       	adc	r25, r17
+ 6a4:	08 95       	ret
+
+000006a6 <__itoa_ncheck>:
+ 6a6:	bb 27       	eor	r27, r27
+ 6a8:	4a 30       	cpi	r20, 0x0A	; 10
+ 6aa:	31 f4       	brne	.+12     	; 0x6b8 <__itoa_ncheck+0x12>
+ 6ac:	99 23       	and	r25, r25
+ 6ae:	22 f4       	brpl	.+8      	; 0x6b8 <__itoa_ncheck+0x12>
+ 6b0:	bd e2       	ldi	r27, 0x2D	; 45
+ 6b2:	90 95       	com	r25
+ 6b4:	81 95       	neg	r24
+ 6b6:	9f 4f       	sbci	r25, 0xFF	; 255
+ 6b8:	0c 94 5f 03 	jmp	0x6be	; 0x6be <__utoa_common>
+
+000006bc <__utoa_ncheck>:
+ 6bc:	bb 27       	eor	r27, r27
+
+000006be <__utoa_common>:
+ 6be:	fb 01       	movw	r30, r22
+ 6c0:	55 27       	eor	r21, r21
+ 6c2:	aa 27       	eor	r26, r26
+ 6c4:	88 0f       	add	r24, r24
+ 6c6:	99 1f       	adc	r25, r25
+ 6c8:	aa 1f       	adc	r26, r26
+ 6ca:	a4 17       	cp	r26, r20
+ 6cc:	10 f0       	brcs	.+4      	; 0x6d2 <__utoa_common+0x14>
+ 6ce:	a4 1b       	sub	r26, r20
+ 6d0:	83 95       	inc	r24
+ 6d2:	50 51       	subi	r21, 0x10	; 16
+ 6d4:	b9 f7       	brne	.-18     	; 0x6c4 <__utoa_common+0x6>
+ 6d6:	a0 5d       	subi	r26, 0xD0	; 208
+ 6d8:	aa 33       	cpi	r26, 0x3A	; 58
+ 6da:	08 f0       	brcs	.+2      	; 0x6de <__utoa_common+0x20>
+ 6dc:	a9 5d       	subi	r26, 0xD9	; 217
+ 6de:	a1 93       	st	Z+, r26
+ 6e0:	00 97       	sbiw	r24, 0x00	; 0
+ 6e2:	79 f7       	brne	.-34     	; 0x6c2 <__utoa_common+0x4>
+ 6e4:	b1 11       	cpse	r27, r1
+ 6e6:	b1 93       	st	Z+, r27
+ 6e8:	11 92       	st	Z+, r1
+ 6ea:	cb 01       	movw	r24, r22
+ 6ec:	0c 94 78 03 	jmp	0x6f0	; 0x6f0 <strrev>
+
+000006f0 <strrev>:
+ 6f0:	dc 01       	movw	r26, r24
+ 6f2:	fc 01       	movw	r30, r24
+ 6f4:	67 2f       	mov	r22, r23
+ 6f6:	71 91       	ld	r23, Z+
+ 6f8:	77 23       	and	r23, r23
+ 6fa:	e1 f7       	brne	.-8      	; 0x6f4 <strrev+0x4>
+ 6fc:	32 97       	sbiw	r30, 0x02	; 2
+ 6fe:	04 c0       	rjmp	.+8      	; 0x708 <strrev+0x18>
+ 700:	7c 91       	ld	r23, X
+ 702:	6d 93       	st	X+, r22
+ 704:	70 83       	st	Z, r23
+ 706:	62 91       	ld	r22, -Z
+ 708:	ae 17       	cp	r26, r30
+ 70a:	bf 07       	cpc	r27, r31
+ 70c:	c8 f3       	brcs	.-14     	; 0x700 <strrev+0x10>
+ 70e:	08 95       	ret
+
+00000710 <_exit>:
+ 710:	f8 94       	cli
+
+00000712 <__stop_program>:
+ 712:	ff cf       	rjmp	.-2      	; 0x712 <__stop_program>

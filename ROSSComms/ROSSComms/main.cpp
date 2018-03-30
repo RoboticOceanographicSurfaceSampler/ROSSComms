@@ -5,6 +5,9 @@
  * Author : Nick McComb | www.nickmccomb.net
  */ 
 
+#define FIRMWARE_VERSION_STR "0.1"
+#define FIRMWARE_VERSION .1
+
 #include <avr/io.h>
 
 #include "main.h"
@@ -32,34 +35,68 @@ volatile RSSI_type RSSI;
 int main(void)
 {
 
-	//configure32MhzInternalOsc();
 	configureIO();	
 	configureExternalOscillator();
-	//
 	configureUSART();
+	configureSerialNumber();
+	configureTimerCounter();
 
+	uint8_t receivedUSARTData;  //Holds received bytes from serial devices
 
-//	LOW_LEVEL_INTERRUPTS_ENABLE();
-//	sei();
+	LOW_LEVEL_INTERRUPTS_ENABLE();
+	sei();
 	
 	//Setup radios
 	XBEE_SLEEP();
 	IRIDIUM_SLEEP();
 	
 	//PORTD.OUTSET = PIN5_bm; //RGB LED Test
+
+	//Init string with basic documentation
+	SendStringPC("\n\r#[INIT ROSE COMMS]\n\r");
+	SendStringPC("#Firmware version ");
+	SendStringPC(FIRMWARE_VERSION_STR);
+	SendStringPC("\n\r#Serial Number: ");
+	if(serialNumber == -1)
+		SendStringPC("NOT SET");
+	else
+		SendNumPC(serialNumber);
+	SendStringPC("\n\r#Msg format: Iridium Status | RSSI Value | Comms Status\n\r");
 	
-	STATUS_SET();
 	
-	SendStringPC("Hello, world :)\n\r");
     while (1) 
     {
 		if(broadcastStatus){
 			broadcastStatus = 0;
+			//SendStringPC("Broadcast, yo\n\r");
 		}
 		STATUS_TOGGLE();
 		_delay_ms(25);
 		
-		SendStringPC("Potatoes are the coolest!\n\r");
+		
+		if(USART_IsRXComplete(&COMP_USART)){
+			SendStringPC("Received data. ");
+			SendStringPC("\n\r");
+			receivedUSARTData = USART_GetChar(&COMP_USART);
+			
+			//Iridium Controls
+			if(receivedUSARTData == 40){ //Turn off Iridium Modem
+				SendStringPC("Turning off Iridium Modem\n\r");
+			}
+			if(receivedUSARTData == 41){ //Turn on Iridium Modem
+				SendStringPC("Turning on Iridium Modem\n\r");
+			}
+			
+			//Xbee controls
+			if(receivedUSARTData == 50){ //Turn off XBee
+				SendStringPC("Turning off Xbee\n\r");
+			}
+			if(receivedUSARTData == 51){ //Turn on XBee
+				SendStringPC("Turning on XBee\n\r");
+			}
+				
+			
+		}
 		
 		if (CHECK_TX_SW()) {
 			ERROR_SET();

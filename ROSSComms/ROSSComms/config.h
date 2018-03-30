@@ -9,7 +9,7 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
-#include "main.h"
+#include "project_header.h"
 
 //'System' Class Functions
 void configureIO();
@@ -19,6 +19,7 @@ void configureTimerCounter();
 void configureRTC();
 void configureADCs();
 void configureUSART();
+void configureSerialNumber();
 
 //Timer Counter Defines
 #define TC_1024_100MS  0x0C35
@@ -28,5 +29,7 @@ void configureUSART();
 //GLOBAL Variables *gasp*
 extern volatile uint8_t broadcastStatus;
 extern volatile uint8_t globalToggle;
+
+
 
 #endif /* CONFIG_H_ */

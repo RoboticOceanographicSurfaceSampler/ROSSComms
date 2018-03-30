@@ -9,10 +9,11 @@
 #ifndef USARTROSS_H_
 #define USARTROSS_H_
 
-#include "main.h"
+#include "project_header.h"
 
 void SendStringPC(char *stufftosend);
 void SendNumPC(uint16_t numToSend);
+void SendNumPC(uint64_t numToSend);
 void SendFloatPC(double numToSend);
 
 #endif /* USARTROSS_H_ */

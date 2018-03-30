@@ -185,6 +185,9 @@
     <Compile Include="main.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="project_header.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="usart_driver.c">
       <SubType>compile</SubType>
     </Compile>

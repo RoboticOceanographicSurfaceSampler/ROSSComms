@@ -23,6 +23,27 @@ void SendNumPC(uint16_t numToSend){
 	SendStringPC(buffer);
 }
 
+/*
+For this function, we need to split the 64 bit integer into two separate
+32 bit integers because %llx and %lld are not implemented in this version
+of sprintf/
+*/
+void SendNumPC(uint64_t numToSend){
+	char buffer[50];
+	uint32_t tempLSB;
+	uint32_t tempMSB;
+	
+	tempLSB = numToSend & 0xFFFFFFFF;	//Least significant four bytes
+	tempMSB = (uint32_t) ((numToSend & 0xFFFFFFFF00000000) >> 32);		//Most significant four bytes
+	
+	if(tempMSB)
+	sprintf(buffer,"%lx%lx", tempMSB, tempLSB);
+	else
+	sprintf(buffer,"%lx", tempLSB);
+	
+	SendStringPC(buffer);
+}
+
 void SendFloatPC(double numToSend){
 	char buffer[100];
 	
