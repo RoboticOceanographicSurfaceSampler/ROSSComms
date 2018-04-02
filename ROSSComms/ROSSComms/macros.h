@@ -25,6 +25,10 @@
 //RSSI Input from the XTend
 #define READ_RSSI_PIN(void) (PORTA.IN & PIN2_bm)
 
+//Read the statuses from the Iridium Modem
+#define CHECK_IRID_PG(void) (PORTC.IN & PIN5_bm)
+#define CHECK_IRID_NETWORK(void) (PORTC.IN & PIN4_bm)
+
 /*** "SYSTEM" Class MACROS ***/
 
 //Interrupt enables

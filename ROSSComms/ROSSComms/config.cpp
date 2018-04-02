@@ -23,6 +23,10 @@ void configureIO(){
 	PORTC.DIRCLR = PIN4_bm;
 	PORTC.DIRCLR = PIN5_bm;
 	
+	//Set the values to defaultly low values so they don't float when the modem is not plugged in
+	PORTC.PIN4CTRL = PORT_OPC_PULLDOWN_gc;
+	PORTC.PIN5CTRL = PORT_OPC_PULLDOWN_gc;
+		
 	//Set the TX ON/OFF switch as an input
 	PORTA.DIRCLR = PIN4_bm;
 	
@@ -214,10 +218,11 @@ void configureSerialNumber(){
 	serialNumber = -1; //Set the default serial number to -1 ("Not assigned yet")
 	
 	//Hardcoded serial number lookups (don't judge)
-	if(UC_LOT_NUMBER == 0x142DD && UC_WAFER_ID == 0x25F3){
+	if(UC_LOT_NUMBER == 0x142DD && UC_WAFER_ID == 0x25F3)
 		serialNumber = 1;
-		SendStringPC("\n\rIdentified board.");
-	}
+	if(UC_LOT_NUMBER == 0x13919 && UC_WAFER_ID == 0x2E84)
+		serialNumber = 2;
+	
 	
 	#ifdef OUTPUT_LOT_AND_WAFER_INFO
 		SendStringPC((char *)"#[Lot ID Number: ");

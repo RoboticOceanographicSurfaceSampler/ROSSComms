@@ -53,7 +53,7 @@ int main(void)
 	//PORTD.OUTSET = PIN5_bm; //RGB LED Test
 
 	//Init string with basic documentation
-	SendStringPC("\n\r#[INIT ROSE COMMS]\n\r");
+	SendStringPC("\n\n\r#[INIT ROSE COMMS]\n\r");
 	SendStringPC("#Firmware version ");
 	SendStringPC(FIRMWARE_VERSION_STR);
 	SendStringPC("\n\r#Serial Number: ");
@@ -69,6 +69,19 @@ int main(void)
 		if(broadcastStatus){
 			broadcastStatus = 0;
 			//SendStringPC("Broadcast, yo\n\r");
+			
+			//Assemble Iridium Status byte
+			uint8_t iridiumStatus = (CHECK_IRID_PG() << 1) | (CHECK_IRID_NETWORK() << 0);
+			
+			//Assemble Comms Value Byte
+			uint8_t commsStatus = ((!CHECK_TX_SW()) << 0);
+			
+			SendNumPC(iridiumStatus);
+			SendStringPC("|");
+			SendStringPC("RSSI");
+			SendStringPC("|");
+			SendNumPC(commsStatus);
+			SendStringPC("\n\r");
 		}
 		STATUS_TOGGLE();
 		_delay_ms(25);
@@ -82,17 +95,21 @@ int main(void)
 			//Iridium Controls
 			if(receivedUSARTData == 40){ //Turn off Iridium Modem
 				SendStringPC("Turning off Iridium Modem\n\r");
+				IRIDIUM_SLEEP();
 			}
 			if(receivedUSARTData == 41){ //Turn on Iridium Modem
 				SendStringPC("Turning on Iridium Modem\n\r");
+				IRIDIUM_WAKE();
 			}
 			
 			//Xbee controls
 			if(receivedUSARTData == 50){ //Turn off XBee
 				SendStringPC("Turning off Xbee\n\r");
+				XBEE_SLEEP();
 			}
 			if(receivedUSARTData == 51){ //Turn on XBee
 				SendStringPC("Turning on XBee\n\r");
+				XBEE_WAKE();
 			}
 				
 			
