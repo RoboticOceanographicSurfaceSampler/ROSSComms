@@ -2,6 +2,11 @@
 
 Comms pairing script that pair's ROSE "ROSS Comms" boards
 
+Requires either 2 or 3 command line arguments
+
+comms_pair.py COM4 color function
+
+where function is either 'ship'/'ground' or 'remote'
 
 
 '''
@@ -14,7 +19,7 @@ import time
 baud = 57600
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 3 or len(sys.argv) == 4:
         print "proper args"
         
         print "Open " + sys.argv[1] + " port with baud " + str(baud)
@@ -34,3 +39,5 @@ if __name__ == "__main__":
     else:
         print "Please use the correct number of arguments."
         quit()
+        
+        
