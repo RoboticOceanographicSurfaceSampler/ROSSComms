@@ -30,6 +30,11 @@ void configureIO(){
 	//Set the TX ON/OFF switch as an input
 	PORTA.DIRCLR = PIN4_bm;
 	
+	//Set the LED display button as an input
+	PORTA.DIRCLR = PIN7_bm;
+	//Set LED display button pullup
+	PORTA.PIN7CTRL = PORT_OPC_PULLUP_gc;
+	
 	//Set the Iridium ON/OFF output
 	PORTA.DIRSET = PIN5_bm;
 	
@@ -222,6 +227,8 @@ void configureSerialNumber(){
 		serialNumber = 1;
 	if(UC_LOT_NUMBER == 0x13919 && UC_WAFER_ID == 0x2E84)
 		serialNumber = 2;
+	if(UC_LOT_NUMBER == 0x13D02 && UC_WAFER_ID == 0x1AA7)
+		serialNumber = 3;
 	
 	
 	#ifdef OUTPUT_LOT_AND_WAFER_INFO

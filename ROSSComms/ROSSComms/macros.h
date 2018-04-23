@@ -10,17 +10,26 @@
 #define ERROR_CLR(void) (PORTC.OUTCLR = PIN3_bm)
 #define ERROR_TOGGLE(void) ((PORTC.OUT & PIN3_bm) == 0 ? ERROR_SET() : ERROR_CLR())
 
+//Raise pin high to turn LED OFF
+#define RED_ON(void) (PORTC.OUTCLR = PIN0_bm)
+#define GREEN_ON(void) (PORTD.OUTCLR = PIN5_bm)
+#define BLUE_ON(void) (PORTD.OUTCLR = PIN4_bm)
+//Lower to turn LED ON
+#define RED_OFF(void) (PORTC.OUTSET = PIN0_bm)
+#define GREEN_OFF(void) (PORTD.OUTSET = PIN5_bm)
+#define BLUE_OFF(void) (PORTD.OUTSET = PIN4_bm)
 
 //Switch Input Macros
 #define CHECK_TX_SW(void) (!(PORTA.IN & PIN4_bm)) //Returns true if the radios should TX
+#define CHECK_LED_SW(void) (!(PORTA.IN & PIN7_bm))
 
 //XBee Power Macros (high to sleep, low to power on)
 #define XBEE_WAKE(void)  (PORTA.OUTCLR = PIN3_bm);
 #define XBEE_SLEEP(void) (PORTA.OUTSET = PIN3_bm);
 
 //Iridium Power Macros (high is on, low is off)
-#define IRIDIUM_WAKE(void)  (PORTA.OUTSET = PIN5_bm);
-#define IRIDIUM_SLEEP(void) (PORTA.OUTCLR = PIN5_bm);
+#define IRIDIUM_WAKE(void)  (PORTA.OUTSET = PIN5_bm)
+#define IRIDIUM_SLEEP(void) (PORTA.OUTCLR = PIN5_bm)
 
 //RSSI Input from the XTend
 #define READ_RSSI_PIN(void) (PORTA.IN & PIN2_bm)

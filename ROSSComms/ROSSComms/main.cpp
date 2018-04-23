@@ -63,6 +63,10 @@ int main(void)
 		SendNumPC(serialNumber);
 	SendStringPC("\n\r#Msg format: Iridium Status | RSSI Value | Comms Status\n\r");
 	
+	RED_OFF();
+	GREEN_OFF();
+	BLUE_OFF();
+		
 	
     while (1) 
     {
@@ -83,10 +87,10 @@ int main(void)
 			SendNumPC(commsStatus);
 			SendStringPC("\n\r");
 		}
-		STATUS_TOGGLE();
+		
 		_delay_ms(25);
 		
-		
+		//Process misc. communication
 		if(USART_IsRXComplete(&COMP_USART)){
 			SendStringPC("Received data. ");
 			SendStringPC("\n\r");
@@ -116,14 +120,19 @@ int main(void)
 		}
 		
 		if (CHECK_TX_SW()) {
-			ERROR_SET();
 			//XBEE_WAKE();
 			IRIDIUM_WAKE();
 		}
 		else{
-			ERROR_CLR();
 			//XBEE_SLEEP();
 			IRIDIUM_SLEEP();
+		}
+		
+		if(CHECK_LED_SW()){
+			GREEN_ON();
+		}
+		else{
+			GREEN_OFF();	
 		}
     }
 }
