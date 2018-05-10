@@ -229,9 +229,17 @@ void configureSerialNumber(){
 		serialNumber = 2;
 	if(UC_LOT_NUMBER == 0x13D02 && UC_WAFER_ID == 0x1AA7)
 		serialNumber = 3;
+	if(UC_LOT_NUMBER == 0x13D02 && UC_WAFER_ID == 0x1FBB)
+		serialNumber = 4;
+	if(UC_LOT_NUMBER == 0x13D02 && UC_WAFER_ID == 0x3218)
+		serialNumber = 5;
 	
-	
-	#ifdef OUTPUT_LOT_AND_WAFER_INFO
+	//If the following ifdefs by default only send lot and wafer IDs
+	//if the serial number is not set. This can be overridden by the 
+	//OUTPUT_LOT_AND_WAFER_INFO define in project_header.h
+	#ifndef OUTPUT_LOT_AND_WAFER_INFO
+	if(serialNumber == -1){
+	#endif
 		SendStringPC((char *)"#[Lot ID Number: ");
 		SendNumPC(UC_LOT_NUMBER);
 		SendStringPC((char *)"]");
@@ -239,5 +247,7 @@ void configureSerialNumber(){
 		SendStringPC((char *)"[Wafer ID Number: ");
 		SendNumPC(UC_WAFER_ID);
 		SendStringPC((char *)"]");
+	#ifndef OUTPUT_LOT_AND_WAFER_INFO
+	}	
 	#endif
 }

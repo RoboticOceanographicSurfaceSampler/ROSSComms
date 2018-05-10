@@ -35,7 +35,7 @@ extern "C" {
 
 //The following are debugging options available
 
-#define OUTPUT_LOT_AND_WAFER_INFO
+//#define OUTPUT_LOT_AND_WAFER_INFO
 
 
 

@@ -53,7 +53,7 @@ int main(void)
 	//PORTD.OUTSET = PIN5_bm; //RGB LED Test
 
 	//Init string with basic documentation
-	SendStringPC("\n\n\r#[INIT ROSE COMMS]\n\r");
+	SendStringPC("\n\n\r#[INIT ROSS COMMS]\n\r");
 	SendStringPC("#Firmware version ");
 	SendStringPC(FIRMWARE_VERSION_STR);
 	SendStringPC("\n\r#Serial Number: ");
