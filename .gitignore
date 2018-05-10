@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+
+#Atmel Studio outputs
+*.hex
+*.lss
+*.map
+*.srec
+*.elf
