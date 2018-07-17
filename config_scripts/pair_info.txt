@@ -1,0 +1,4 @@
+#db for XTend Daughterboard, comms for ROSSComms
+db	purple	5	6
+db	blue	7	8
+db	yellow	9	10
